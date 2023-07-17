@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+
+        <shape
+            android:shape="rectangle">
+
+            <corners android:radius="@dimen/_7sdp" />
+            <solid android:color="@color/gray" />
+
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ic_down_arrow_black"
+        android:gravity="end|center"
+        android:end="@dimen/_22sdp"
+        android:width="@dimen/_6sdp"
+        android:height="@dimen/_6sdp"
+        tools:ignore="UnusedAttribute" />
+
+</layer-list>

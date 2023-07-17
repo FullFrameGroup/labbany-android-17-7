@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="161dp"
+        android:layoutDirection="ltr"
+        android:layout_marginEnd="@dimen/_7sdp"
+        android:background="@color/transparent"
+        android:layout_height="132dp"
+        tools:ignore="RtlCompat">
+
+        <!--<TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:lines="1"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_32sdp"
+            android:background="@drawable/bg_solid_white_corner_7sdp"
+            android:gravity="top|center"
+            android:paddingTop="@dimen/_6sdp"
+            android:text="تيس عارضي"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_18ssp"
+            style="@style/CustomTextViewTheme_Bon_Font"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat" />-->
+
+        <ImageView
+            android:id="@+id/img"
+            android:scaleType="fitXY"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/logo_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

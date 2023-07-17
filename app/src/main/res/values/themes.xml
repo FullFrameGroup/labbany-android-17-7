@@ -1,0 +1,73 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Labbany" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/yellow_2</item>
+        <item name="colorPrimaryVariant">@color/yellow_2</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="CustomTextViewTheme_Regular" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="fontFamily">@font/my_tajawal_regular</item>
+    </style>
+
+    <style name="CustomTextViewTheme_Light" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="fontFamily">@font/my_tajawal_light</item>
+    </style>
+
+    <style name="CustomTextViewTheme_Medium" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="fontFamily">@font/my_tajawal_meduim</item>
+    </style>
+
+    <style name="CustomTextViewTheme_Bold" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="fontFamily">@font/my_tajawal_bold</item>
+<!--        <item name="android:textStyle">bold</item>-->
+    </style>
+
+    <style name="CustomTextViewTheme_Bon_Font" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="fontFamily">@font/my_bon_font</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/gray_6</item>
+        <item name="colorControlActivated">@color/yellow_3</item>
+    </style>
+
+    <style name="Theme_Dialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="DialogTheme" parent="@style/Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="TimePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/yellow_dark</item>
+    </style>
+
+    <style name="NewCheckoutTheme" parent="Theme.Checkout.Light">
+        <item name="headerBackground">@color/yellow_2</item>
+
+        <item name="cancelButtonTintColor">@android:color/black</item>
+        <item name="listMarkTintColor">@color/yellow_2</item>
+        <item name="cameraTintColor">@color/yellow_2</item>
+        <item name="checkboxButtonTintColor">@color/yellow_2</item>
+
+<!--        <item name="paymentMethodListItemSelector">@drawable/ic_down_arrow_red</item>-->
+
+        <item name="checkoutButtonStyle">@style/NewCheckoutTheme.Button</item>
+    </style>
+
+    <style name="NewCheckoutTheme.Button" parent="Checkout.Button.Light">
+        <item name="android:background">@color/yellow_2</item>
+    </style>
+
+</resources>

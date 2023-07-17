@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        tools:context=".ui.auth.otp.OTPFragment">
+
+
+        <include
+            android:id="@+id/tb"
+            layout="@layout/tb_otp" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:gravity="start"
+            android:layout_marginHorizontal="@dimen/_26sdp"
+            android:text="@string/account_verification"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_23ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb" />
+
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="right"
+            android:layout_marginHorizontal="@dimen/_26sdp"
+            android:text="أدخل رمزًا مكونًا من 4 أرقام للتحقق من حسابك."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_1" />
+
+        <in.aabhasjindal.otptextview.OtpTextView
+            android:id="@+id/otp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dull_red"
+            app:bar_active_color="@color/dull_red"
+            app:bar_inactive_color="@color/black"
+            android:layoutDirection="ltr"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginHorizontal="@dimen/_26sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_2"
+            app:bar_enabled="true"
+            app:bar_height="2dp"
+            app:length="4"
+            app:width="@dimen/_58sdp"
+            app:otp_text_size="24dp"
+            tools:ignore="UnusedAttribute" />
+
+
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_42sdp"
+            android:gravity="right"
+            android:text="ألم تتلق الرمز؟."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintStart_toStartOf="@id/tv_2"
+            app:layout_constraintTop_toBottomOf="@id/otp_view" />
+
+
+        <TextView
+            android:id="@+id/tv_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginTop="@dimen/_42sdp"
+            android:text="@string/resent"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintEnd_toEndOf="@id/otp_view"
+            app:layout_constraintTop_toBottomOf="@id/otp_view" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginTop="@dimen/_52sdp"
+            android:background="@drawable/bg_solid_dull_red_corner_7sdp"
+            android:gravity="center"
+            style="@style/CustomTextViewTheme_Regular"
+            android:text="تحقق"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="@id/tv_2"
+            app:layout_constraintStart_toStartOf="@id/otp_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_resend" />
+
+        <include
+            android:id="@+id/inc_progress"
+            layout="@layout/layout_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_confirm"
+            app:layout_constraintEnd_toEndOf="@+id/tv_confirm"
+            app:layout_constraintStart_toStartOf="@id/tv_confirm"
+            app:layout_constraintTop_toTopOf="@id/tv_confirm" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

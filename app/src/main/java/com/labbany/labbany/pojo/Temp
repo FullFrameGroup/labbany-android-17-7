@@ -1,0 +1,36 @@
+dialog_offer.xml
+stc.png
+group_98.png
+image_1.png
+image_2.png
+logo_3.png
+mada.png
+mask_group_102.png
+
+                <include layout="@layout/layout_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/tv_login"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_login"
+                    app:layout_constraintTop_toTopOf="@id/tv_login"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_login"
+                    android:id="@+id/inc_progress"
+                    />
+
+                                             user_id: Int,
+                                             cart_id: Int,
+                                             address_id: Int,
+                                             wallet_amount: Double?,
+                                             coupon_code: String,
+                                            total_after_discount: Double,
+                                             campaign_id: Int,
+                                            campaign_type: String,
+                                             campaign_value: String,
+                                            campaign_code: String,
+                                             additional_discount: Double?,
+                                             ship_charge: Double,
+                                            tax: Double,
+                                             total_payment: Double,
+                                            payment_type: String,
+                                             time: String,
+                                             date: String,

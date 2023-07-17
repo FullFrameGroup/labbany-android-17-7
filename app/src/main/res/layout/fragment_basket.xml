@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr"
+        tools:context=".ui.basket.BasketActivity">
+
+        <include
+            android:id="@+id/tb"
+            layout="@layout/tb_basket" />
+
+        <TextView
+            android:id="@+id/tv_empty_basket"
+            style="@style/CustomTextViewTheme_Bon_Font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/empty_basket"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_18ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb"
+            tools:ignore="RtlCompat" />
+
+        <ScrollView
+            android:id="@+id/sv_root"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb"
+            tools:context=".ui.basket.BasketActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_12sdp"
+                tools:context=".ui.basket.BasketActivity">
+
+                <ImageView
+                    android:id="@+id/img_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/ic_fi_rr_location_alt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_3"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:text="@string/delivery_to"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_1"
+                    app:layout_constraintTop_toTopOf="@id/img_1" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:text="@null"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_3" />
+
+                <View
+                    android:id="@+id/view_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_address" />
+
+                <TextView
+                    android:id="@+id/tv_4"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:text="ألية السداد"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:drawableEndCompat="@drawable/ic_fi_rr_box_alt"
+                    app:layout_constraintEnd_toEndOf="@id/img_1"
+                    app:layout_constraintTop_toBottomOf="@id/view_1" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_visa"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_4"
+                    tools:ignore="RtlCompat"
+                    tools:listitem="@layout/item_visa" />
+
+                <View
+                    android:id="@+id/view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/rv_visa" />
+
+                <ImageView
+                    android:id="@+id/img_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/ic_fi_rr_dollar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:checked="false"
+                    app:layout_constraintBottom_toBottomOf="@id/img_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/img_2" />
+
+                <EditText
+                    android:id="@+id/et_wallet_amount"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_14sdp"
+                    android:background="@drawable/bg_solid_gray_corner_7sdp"
+                    android:gravity="center"
+                    android:hint="@string/wallet_amount"
+                    android:inputType="numberDecimal"
+                    android:paddingVertical="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_2"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/img_2"
+                    app:layout_constraintEnd_toStartOf="@id/tv_5"
+                    app:layout_constraintStart_toEndOf="@id/sw"
+                    app:layout_constraintTop_toTopOf="@id/img_2" />
+
+
+                <TextView
+                    android:id="@+id/tv_5"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:text="@string/wallet_amount"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_2"
+                    app:layout_constraintTop_toTopOf="@id/img_2" />
+
+                <TextView
+                    android:id="@+id/tv_wallet"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:text="@null"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_2"
+                    app:layout_constraintTop_toBottomOf="@id/tv_5" />
+
+                <View
+                    android:id="@+id/view_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_wallet" />
+
+                <ImageView
+                    android:id="@+id/img_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:src="@drawable/ic_fi_rr_box_alt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_3" />
+
+                <ImageView
+                    android:id="@+id/img_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:rotation="90"
+                    android:src="@drawable/ic_down_arrow_black"
+                    app:layout_constraintBottom_toBottomOf="@id/img_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/img_3" />
+
+
+                <TextView
+                    android:id="@+id/tv_6"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="start"
+                    android:text="تاريخ ووقت التوصيل"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_3"
+                    app:layout_constraintStart_toEndOf="@id/img_date"
+                    app:layout_constraintTop_toTopOf="@id/img_3" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="right"
+                    android:lines="2"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="@string/click_to_date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_3"
+                    app:layout_constraintTop_toBottomOf="@id/tv_6" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:gravity="right"
+                    android:lines="2"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="@string/click_to_time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toStartOf="@id/tv_date"
+                    app:layout_constraintStart_toStartOf="@id/img_date"
+                    app:layout_constraintTop_toBottomOf="@id/tv_6"
+                    tools:ignore="RtlCompat" />
+
+                <View
+                    android:id="@+id/view_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_date" />
+
+                <ImageView
+                    android:id="@+id/img_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/ic_fi_rr_ticket"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_4" />
+
+                <TextView
+                    android:id="@+id/tv_7"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:text="كوبون / كود خصم"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/img_4"
+                    app:layout_constraintTop_toTopOf="@id/img_4" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:indeterminateTint="@color/dull_red"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_add_coupon"
+                    app:layout_constraintEnd_toEndOf="@id/tv_add_coupon"
+                    app:layout_constraintStart_toStartOf="@id/tv_add_coupon"
+                    app:layout_constraintTop_toTopOf="@id/tv_add_coupon"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/tv_add_coupon"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/bg_half_left_circle_dull_red_corner_7sdp"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/add_2"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/img_4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/img_4" />
+
+                <EditText
+                    android:id="@+id/et_add_coupon"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/bg_half_right_circle_gray_corner_7sdp"
+                    android:gravity="center"
+                    android:hint="@string/order_coupon"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_2"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_add_coupon"
+                    app:layout_constraintEnd_toStartOf="@id/tv_7"
+                    app:layout_constraintStart_toEndOf="@id/tv_add_coupon"
+                    app:layout_constraintTop_toTopOf="@id/tv_add_coupon"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_coupon"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:gravity="center"
+                    android:text="@null"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_add_coupon" />
+
+                <View
+                    android:id="@+id/view_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/tv_coupon" />
+
+
+                <TextView
+                    android:id="@+id/tv_8"
+                    style="@style/CustomTextViewTheme_Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:gravity="center"
+                    android:text="سلة مشترياتك"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    app:drawableEndCompat="@drawable/ic_fi_rr_shopping_cart_check"
+                    app:layout_constraintEnd_toEndOf="@id/img_1"
+                    app:layout_constraintTop_toBottomOf="@id/view_5" />
+
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:text=" ( اربع قط)"
+                    android:textColor="@color/dull_red"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_8"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_8" />
+
+                <TextView
+                    android:id="@+id/tv_total_111"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:text="المجموع"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_total_price"
+                    app:layout_constraintStart_toEndOf="@id/tv_total_price"
+                    app:layout_constraintTop_toTopOf="@id/tv_total_price" />
+
+                <TextView
+                    android:id="@+id/tv_total_discount"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_red_line"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:text=" ( ارب)"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9ssp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/tv_total_price"
+                    app:layout_constraintStart_toStartOf="@id/tv_total_price" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_basket"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@id/img_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_8"
+                    tools:ignore="RtlCompat"
+                    tools:listitem="@layout/item_basket" />
+
+                <TextView
+                    android:id="@+id/tv_add_buy"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_marginHorizontal="@dimen/_72sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:background="@drawable/bg_solid_dull_red_corner_7sdp"
+                    android:gravity="center"
+                    android:text="شراء"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_basket" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:paddingBottom="@dimen/_12sdp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_user"
+            android:layout_width="@dimen/_56sdp"
+            android:layout_height="@dimen/_56sdp"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginVertical="@dimen/_18sdp"
+            android:src="@drawable/ic_twotone_person_outline_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:gravity="right"
+            android:textSize="@dimen/_17ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toEndOf="@id/civ_user"
+            app:layout_constraintEnd_toStartOf="@id/tv_edit"
+            app:layout_constraintTop_toTopOf="@id/civ_user" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@null"
+            android:maxLines="2"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toStartOf="@id/tv_edit"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:background="@drawable/bg_solid_dull_red_corner_12sdp"
+            android:drawableStart="@drawable/ic_edit_button"
+            android:drawablePadding="@dimen/_4sdp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_2sdp"
+            android:text="@string/edit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Medium"
+            app:layout_constraintBottom_toBottomOf="@id/civ_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/civ_user"
+            tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="@id/civ_user"
+            app:layout_constraintEnd_toEndOf="@id/tv_edit"
+            app:layout_constraintTop_toBottomOf="@id/civ_user" />
+
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="رصيد المحقظة الخاصة بك"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            style="@style/CustomTextViewTheme_Medium"
+            app:layout_constraintStart_toStartOf="@id/view_1"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/view_1" />
+
+
+        <TextView
+            android:id="@+id/tv_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@null"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_12ssp"
+            style="@style/CustomTextViewTheme_Medium"
+            app:layout_constraintEnd_toEndOf="@id/view_1"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/view_1" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

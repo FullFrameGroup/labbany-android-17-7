@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/_18sdp"
+        android:layoutDirection="rtl"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_solid_gray_corner_7sdp">
+
+       <TextView
+            android:id="@+id/tv_price_delivery_111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delivery_price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+           android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+
+        <TextView
+            android:id="@+id/tv_price_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price_delivery_111"
+            app:layout_constraintTop_toTopOf="@id/tv_price_delivery_111"
+            tools:ignore="RtlCompat" />
+
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="0dp"
+            android:layout_height="1.35dp"
+            android:background="@drawable/bg_line_1"
+            android:layout_marginTop="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_price_delivery_111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/tv_price_tax_111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tax_price"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_2"
+            tools:ignore="RtlCompat" />
+
+
+        <TextView
+            android:id="@+id/tv_price_tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price_tax_111"
+            app:layout_constraintTop_toTopOf="@id/tv_price_tax_111"
+            tools:ignore="RtlCompat" />
+
+        <View
+            android:id="@+id/view_3"
+            android:layout_width="0dp"
+            android:layout_height="1.35dp"
+            android:background="@drawable/bg_line_1"
+            android:layout_marginTop="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_price_tax_111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_price_discount_111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/discount_price"
+            android:textColor="@color/black"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_3"
+            tools:ignore="RtlCompat" />
+
+
+        <TextView
+            android:id="@+id/tv_price_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:text="@null"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price_discount_111"
+            app:layout_constraintTop_toTopOf="@id/tv_price_discount_111"
+            tools:ignore="RtlCompat" />
+
+        <View
+            android:id="@+id/view_4"
+            android:layout_width="0dp"
+            android:layout_height="1.35dp"
+            android:background="@drawable/bg_line_1"
+            android:layout_marginTop="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_price_discount_111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_wallet_111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wallet_1"
+            android:textColor="@color/black"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_4"
+            tools:ignore="RtlCompat" />
+
+
+        <TextView
+            android:id="@+id/tv_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:text="@null"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_wallet_111"
+            app:layout_constraintTop_toTopOf="@id/tv_wallet_111"
+            tools:ignore="RtlCompat" />
+
+    <View
+            android:id="@+id/view_5"
+            android:layout_width="0dp"
+            android:layout_height="1.35dp"
+            android:background="@drawable/bg_line_1"
+            android:layout_marginTop="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_wallet_111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_price_product_original11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_price"
+            android:textColor="@color/black"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_5"
+            tools:ignore="RtlCompat" />
+
+
+        <TextView
+            android:id="@+id/tv_price_product_original"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:text="@null"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/tv_price_product_original11"
+            app:layout_constraintTop_toTopOf="@id/tv_price_product_original11"
+            tools:ignore="RtlCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

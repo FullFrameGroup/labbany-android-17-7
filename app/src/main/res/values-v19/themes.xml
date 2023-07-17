@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="DialogTheme" parent="@style/Theme.MaterialComponents.Light.Dialog">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@color/yellow_2</item>
+    </style>
+</resources>

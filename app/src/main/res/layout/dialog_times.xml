@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_background_inset_5"
+        android:layoutDirection="rtl">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_36sdp"
+            android:id="@+id/view_1"
+            android:background="@drawable/bg_half_top_circle_yellow_dark_corner_7sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_ok"
+            style="@style/CustomTextViewTheme_Bon_Font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="@id/view_1"
+            app:layout_constraintBottom_toBottomOf="@id/view_1"
+            android:text="@string/select_order_time"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="RtlCompat,UnusedAttribute" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_times"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_1"
+            app:layout_constraintBottom_toTopOf="@id/view_2"
+            tools:ignore="RtlCompat"
+            tools:listitem="@layout/item_time" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_4sdp"
+            android:indeterminateTint="@color/yellow_dark"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_ok"
+            app:layout_constraintEnd_toEndOf="@id/tv_ok"
+            app:layout_constraintStart_toStartOf="@id/tv_ok"
+            app:layout_constraintTop_toTopOf="@id/tv_ok"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:id="@+id/tv_empty"
+            style="@style/CustomTextViewTheme_Bon_Font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginVertical="@dimen/_6sdp"
+            android:text="@string/empty_times"
+            android:textColor="@color/yellow_dark"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_1"
+            app:layout_constraintBottom_toTopOf="@id/view_2"
+            tools:ignore="RtlCompat" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            android:id="@+id/view_2"
+            android:background="@drawable/bg_half_bottom_circle_yellow_dark_corner_7sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

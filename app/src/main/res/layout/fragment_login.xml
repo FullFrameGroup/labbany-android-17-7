@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.login.LoginFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_24sdp"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:src="@drawable/logo_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_32sdp"
+                android:gravity="center"
+                android:text="مرحبا بك."
+                android:textColor="@color/black"
+                android:textSize="@dimen/_28ssp"
+                style="@style/CustomTextViewTheme_Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo" />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="قم بالتسجيل الى حسابك"
+                android:textColor="@color/light_grey_blue"
+                android:textSize="@dimen/_15ssp"
+                style="@style/CustomTextViewTheme_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_1" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginHorizontal="@dimen/_26sdp"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:background="@drawable/bg_solid_pale_grey_corner_7sdp"
+                android:gravity="right|center"
+                android:hint="رقم الهاتف"
+                android:inputType="phone"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:textColor="@color/light_grey_blue"
+                android:textColorHint="@color/light_grey_blue"
+                android:singleLine="true"
+                android:textSize="@dimen/_14ssp"
+                style="@style/CustomTextViewTheme_Regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_2" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_solid_pale_grey_corner_7sdp"
+                android:gravity="right|center"
+                android:inputType="textPassword"
+                android:hint="كلمة السر"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:textColor="@color/light_grey_blue"
+                android:textColorHint="@color/light_grey_blue"
+                android:singleLine="true"
+                android:textSize="@dimen/_14ssp"
+                style="@style/CustomTextViewTheme_Regular"
+                app:layout_constraintEnd_toEndOf="@id/et_phone"
+                app:layout_constraintStart_toStartOf="@id/et_phone"
+                app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+
+            <TextView
+                android:id="@+id/tv_forget_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="نسيت كلمة السر؟"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                style="@style/CustomTextViewTheme_Regular"
+                app:layout_constraintStart_toStartOf="@id/et_password"
+                app:layout_constraintTop_toBottomOf="@id/et_password" />
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/bg_solid_dull_red_corner_7sdp"
+                android:gravity="center"
+                android:text="تسجيل"
+                android:textColor="@color/white"
+                style="@style/CustomTextViewTheme_Regular"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@id/et_phone"
+                app:layout_constraintStart_toStartOf="@id/et_phone"
+                app:layout_constraintTop_toBottomOf="@id/tv_forget_password" />
+
+        <TextView
+                android:id="@+id/tv_or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="او سجل بواسطة"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                style="@style/CustomTextViewTheme_Regular"
+                app:layout_constraintEnd_toEndOf="@id/et_phone"
+                app:layout_constraintStart_toStartOf="@id/et_phone"
+                app:layout_constraintTop_toBottomOf="@id/tv_login" />
+
+            <include layout="@layout/layout_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/tv_login"
+                app:layout_constraintEnd_toEndOf="@+id/tv_login"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@id/tv_login"
+                app:layout_constraintBottom_toBottomOf="@id/tv_login"
+                android:id="@+id/inc_progress"
+                />
+
+            <ImageView
+                android:id="@+id/img_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:src="@drawable/ic_google"
+                app:layout_constraintEnd_toEndOf="@id/tv_or"
+                app:layout_constraintStart_toEndOf="@id/img_facebook"
+                app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
+            <ImageView
+                android:id="@+id/img_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_facebook"
+                app:layout_constraintEnd_toStartOf="@id/img_google"
+                app:layout_constraintStart_toStartOf="@id/tv_or"
+                app:layout_constraintTop_toTopOf="@id/img_google" />
+
+            <TextView
+                android:id="@+id/tv_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:gravity="center"
+                android:text="@string/no_have_account_sign_up"
+                android:textColor="@color/light_grey_blue"
+                android:textSize="@dimen/_15ssp"
+                style="@style/CustomTextViewTheme_Regular"
+                app:layout_constraintEnd_toEndOf="@id/et_phone"
+                app:layout_constraintStart_toStartOf="@id/et_phone"
+                app:layout_constraintTop_toBottomOf="@id/img_google" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

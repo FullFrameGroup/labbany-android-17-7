@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.labbany.labbany.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/termsAndConditionsFragment"
+        android:name="com.labbany.labbany.ui.terms_and_conditions.TermsAndConditionsFragment"
+        android:label="fragment_terms_and_conditions"
+        tools:layout="@layout/fragment_terms_and_conditions" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.labbany.labbany.ui.auth.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.labbany.labbany.ui.auth.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/phoneRegisterationFragment"
+        android:name="com.labbany.labbany.ui.auth.phone.PhoneRegistrationFragment"
+        android:label="fragment_phone_registeration"
+        tools:layout="@layout/fragment_phone_registeration" />
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.labbany.labbany.ui.auth.reset_password.ResetPasswordFragment"
+        android:label="fragment_reset_password"
+        tools:layout="@layout/fragment_reset_password" />
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.labbany.labbany.ui.auth.otp.OTPFragment"
+        android:label="fragment_o_t_p"
+        tools:layout="@layout/fragment_o_t_p" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.labbany.labbany.ui.wallet.WalletFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.labbany.labbany.ui.notifications.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.labbany.labbany.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.labbany.labbany.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+<!--    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.labbany.labbany.ui.basket.BasketActivity"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />-->
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.labbany.labbany.ui.auth.forget_password.ForgetPasswordFragment"
+        android:label="fragment_forget_password"
+        tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.labbany.labbany.ui.auth.edit_profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/paymentMethodsFragment"
+        android:name="com.labbany.labbany.ui.payment.PaymentMethodsFragment"
+        android:label="fragment_payment_methods"
+        tools:layout="@layout/fragment_payment_methods" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.labbany.labbany.ui.auth.change_password.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+    <fragment
+        android:id="@+id/complaintsFragment"
+        android:name="com.labbany.labbany.ui.complaints.ComplaintsFragment"
+        android:label="fragment_complaints"
+        tools:layout="@layout/fragment_complaints" />
+    <fragment
+        android:id="@+id/couponExchangeFragment"
+        android:name="com.labbany.labbany.ui.coupons.CouponExchangeFragment"
+        android:label="fragment_coupon_exchange"
+        tools:layout="@layout/fragment_coupon_exchange" />
+    <dialog
+        android:id="@+id/rateOrderFragment"
+        android:name="com.labbany.labbany.ui.rate_order.RateOrderFragment"
+        android:label="fragment_rate_us"
+        tools:layout="@layout/fragment_rate_order" />
+    <dialog
+        android:id="@+id/visaDetailsFragment"
+        android:name="com.labbany.labbany.ui.visa_details.VisaDetailsFragment"
+        android:label="fragment_visa_details"
+        tools:layout="@layout/fragment_visa_details" />
+    <dialog
+        android:id="@+id/uploadProblemFragment"
+        android:name="com.labbany.labbany.ui.upload_problem.UploadProblemFragment"
+        android:label="fragment_upload_problem"
+        tools:layout="@layout/fragment_upload_problem" />
+    <dialog
+        android:id="@+id/addVisaFragment"
+        android:name="com.labbany.labbany.ui.add_visa.AddVisaFragment"
+        android:label="fragment_add_visa"
+        tools:layout="@layout/fragment_add_visa" />
+    <dialog
+        android:id="@+id/productDetailsFragment"
+        android:name="com.labbany.labbany.ui.product_details.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
+    <dialog
+        android:id="@+id/notAuthDialog"
+        android:name="com.labbany.labbany.ui.auth.not_auth.NotAuthDialog"
+        android:label="not_auth_dialog"
+        tools:layout="@layout/dialog_auth" />
+    <dialog
+        android:id="@+id/offerDetailsDialog"
+        android:name="com.labbany.labbany.ui.offer_details.OfferDetailsDialog"
+        android:label="offer_details"
+        tools:layout="@layout/dialog_offer" />
+
+    <dialog
+        android:id="@+id/rateAppDialog"
+        android:name="com.labbany.labbany.ui.rate_app.RateAppDialog"
+        android:label="dialog_rate_app"
+        tools:layout="@layout/dialog_rate_app" />
+
+   <dialog
+        android:id="@+id/newUserDialog"
+        android:name="com.labbany.labbany.ui.auth.otp.coupon_for_new_user.NewUserDialog"
+        android:label="dialog_new_user"
+        tools:layout="@layout/dialog_new_user" />
+
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.labbany.labbany.ui.my_orders.MyOrdersFragment"
+        android:label="fragment_my_orders"
+        tools:layout="@layout/fragment_my_orders" />
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.labbany.labbany.ui.order_details.OrderDetailsFragment"
+        android:label="fragment_order_details"
+        tools:layout="@layout/fragment_order_details" />
+
+</navigation>

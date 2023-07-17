@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:tools="http://schemas.android.com/tools"
+    android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ic_mask_group_102"
+        android:gravity="bottom|end"
+        android:width="@dimen/_142sdp"
+        android:end="@dimen/_32sdp"
+        android:height="@dimen/_142sdp"
+        tools:ignore="UnusedAttribute" />
+
+</layer-list>

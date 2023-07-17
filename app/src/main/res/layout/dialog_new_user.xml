@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="@drawable/dialog_background_inset_3"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:background="@drawable/bg_solid_white_corner_22sdp"
+            android:paddingTop="@dimen/_30sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_msg"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:gravity="center"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="s;oprgoklergkgkkg" />
+
+            <TextView
+                android:id="@+id/tv_coupon"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_6sdp"
+                android:gravity="left"
+                android:text="@string/copy_coupon"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintBottom_toBottomOf="@id/img_copy"
+                app:layout_constraintEnd_toStartOf="@id/img_copy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_copy"
+                tools:ignore="RtlHardcoded" />
+
+            <ImageView
+                android:id="@+id/img_copy"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:elevation="@dimen/_3sdp"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/ic_baseline_content_copy_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_msg"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/tv_ok"
+                style="@style/CustomTextViewTheme_Bon_Font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/bg_solid_white_corner_22sdp"
+                android:elevation="@dimen/_1sdp"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_18sdp"
+                android:paddingVertical="@dimen/_6sdp"
+                android:text="@string/okay"
+                android:textColor="@color/dull_red"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintTop_toBottomOf="@id/img_copy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="UnusedAttribute" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_1"
+            android:layout_width="@dimen/_54sdp"
+            android:layout_height="@dimen/_54sdp"
+            android:src="@drawable/logo_3"
+            app:layout_constraintBottom_toTopOf="@id/cl_root"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cl_root" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

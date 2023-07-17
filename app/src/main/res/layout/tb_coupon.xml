@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_46sdp"
+        android:layoutDirection="rtl"
+        android:background="@drawable/bg_solid_yellow_2">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginHorizontal="@dimen/_9sdp"
+            android:src="@drawable/ic_arrow_back_white"
+            android:layout_marginVertical="@dimen/_7sdp"
+            android:paddingVertical="@dimen/_9sdp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:background="@drawable/bg_circle_yellow_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="صرف قسيمة"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            style="@style/CustomTextViewTheme_Bon_Font"
+            app:layout_constraintBottom_toBottomOf="@id/img_back"
+            app:layout_constraintStart_toEndOf="@id/img_back"
+            app:layout_constraintTop_toTopOf="@id/img_back"
+            android:layout_marginRight="@dimen/_12sdp"
+            tools:ignore="RtlCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

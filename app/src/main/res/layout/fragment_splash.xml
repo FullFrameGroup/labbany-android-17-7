@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        android:background="@color/dull_red"
+        tools:context=".ui.splash.SplashFragment">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_splash_2"
+            />
+
+        <TextView
+            android:id="@+id/tv_sign_up"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_stroke_white_1sdp_corner_7sdp"
+            android:gravity="center"
+            android:text="إنشاء حساب"
+            style="@style/CustomTextViewTheme_Regular"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toTopOf="@id/tv_not_auth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_not_auth"
+            android:gravity="center"
+            android:text="دخول كـــ زائر"
+            style="@style/CustomTextViewTheme_Regular"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:background="@drawable/bg_solid_yellow_corner_7sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_solid_yellow_corner_7sdp"
+            style="@style/CustomTextViewTheme_Regular"
+            android:gravity="center"
+            android:text="تسجيل دخول"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toTopOf="@id/tv_sign_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="لباني يقدم لك جميع انواع اللحوم الطازجة تصلك إلى منزلك."
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintBottom_toTopOf="@id/tv_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/logo_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/_70sdp"
+            app:layout_constraintBottom_toTopOf="@id/tv_1"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

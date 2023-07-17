@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        tools:context=".ui.profile.ProfileFragment"
+        tools:ignore="UnusedAttribute">
+
+        <include
+            android:id="@+id/tb"
+            layout="@layout/tb_main" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_36sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/layout_profile_header"
+                        layout="@layout/layout_profile_header" />
+
+                    <include
+                        android:id="@+id/inc_progress"
+                        layout="@layout/layout_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/layout_profile_header"
+                        app:layout_constraintStart_toStartOf="@id/layout_profile_header"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:background="@color/gray_4" />
+
+                <TextView
+                    android:id="@+id/tv_my_orders"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_my_orders"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/my_orders"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_coupon_exchange"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_coupon"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/coupon_exchange"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_change_password"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_privacy"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/change_password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_city"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_just_arrived"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/city"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_house"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/address"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_payment_methods"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_credit_card"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/payment_methods"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_constraints"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_surface1"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/constraints"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_call_info"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_information"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/call_info"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_rate_us"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_favorite"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/rate_us"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_upload_problem"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_error"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/upload_problem"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+                <View
+                    android:id="@+id/view_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_9sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:background="@color/gray"
+                    tools:ignore="RtlCompat" />
+
+
+                <TextView
+                    android:id="@+id/tv_logout"
+                    style="@style/CustomTextViewTheme_Bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_xmlid_2_"
+                    android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_left_24"
+                    android:drawablePadding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:text="@string/logout"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    tools:ignore="RtlCompat,UseCompatTextViewDrawableXml" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

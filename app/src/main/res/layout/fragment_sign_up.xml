@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.signup.SignUpFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_6sdp">
+
+            <include
+                android:id="@+id/tb"
+                layout="@layout/tb_sign_up" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_user"
+                android:layout_width="@dimen/_74sdp"
+                android:layout_height="@dimen/_74sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:src="@drawable/ic_person"
+                app:civ_circle_background_color="@color/pale_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tb" />
+
+            <ImageView
+                android:id="@+id/img_add_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_photo"
+                app:layout_constraintBottom_toBottomOf="@id/civ_user"
+                app:layout_constraintStart_toStartOf="@id/civ_user" />
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginHorizontal="@dimen/_26sdp"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:background="@drawable/bg_solid_pale_grey_corner_7sdp"
+                android:gravity="right|center"
+                android:hint="@string/user_name"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/light_grey_blue"
+                android:textColorHint="@color/light_grey_blue"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/civ_user" />
+
+
+            <EditText
+                android:id="@+id/et_phone"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_solid_pale_grey_corner_7sdp"
+                android:gravity="right|center"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/light_grey_blue"
+                android:textColorHint="@color/light_grey_blue"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@id/et_name"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/et_name"
+                app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+            <EditText
+                android:id="@+id/et_password"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_solid_pale_grey_corner_7sdp"
+                android:gravity="right|center"
+                android:hint="كلمة السر"
+                android:inputType="textPassword"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/light_grey_blue"
+                android:textColorHint="@color/light_grey_blue"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@id/et_name"
+                app:layout_constraintStart_toStartOf="@id/et_name"
+                app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+            <EditText
+                android:id="@+id/et_confirm_password"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/bg_solid_pale_grey_corner_7sdp"
+                android:gravity="right|center"
+                android:hint="تأكيد كلمة السر"
+                android:inputType="textPassword"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:singleLine="true"
+                android:textColor="@color/light_grey_blue"
+                android:textColorHint="@color/light_grey_blue"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@id/et_name"
+                app:layout_constraintStart_toStartOf="@id/et_name"
+                app:layout_constraintTop_toBottomOf="@id/et_password" />
+
+            <TextView
+                android:id="@+id/tv_sign_up"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:background="@drawable/bg_solid_dull_red_corner_7sdp"
+                android:gravity="center"
+                android:text="@string/create_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="@id/et_name"
+                app:layout_constraintStart_toStartOf="@id/et_name"
+                app:layout_constraintTop_toBottomOf="@id/et_confirm_password" />
+
+            <include
+                android:id="@+id/inc_progress"
+                layout="@layout/layout_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tv_sign_up"
+                app:layout_constraintEnd_toEndOf="@+id/tv_sign_up"
+                app:layout_constraintStart_toStartOf="@id/tv_sign_up"
+                app:layout_constraintTop_toTopOf="@id/tv_sign_up" />
+
+            <TextView
+                android:id="@+id/tv_or"
+                style="@style/CustomTextViewTheme_Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:gravity="center"
+                android:text="@string/agree_constraints"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@id/et_name"
+                app:layout_constraintStart_toStartOf="@id/et_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_sign_up" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

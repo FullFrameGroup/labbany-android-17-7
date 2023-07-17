@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/_250sdp"
+        android:layoutDirection="rtl"
+        android:background="@drawable/bg_solid_white_corner_22sdp"
+        android:layout_height="@dimen/_340sdp">
+
+        <View
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_340sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:src="@drawable/ic_lock_overturning"
+            android:id="@+id/img_1"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_location"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            android:layout_marginTop="@dimen/_24sdp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_1" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/shoid_be_select_location"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:textSize="@dimen/_15ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_1" />
+
+
+        <Spinner
+            android:id="@+id/sp_cities"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:background="@drawable/bg_spinner_red_strock_corner_22sdp"
+            android:paddingStart="@dimen/_18sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_2"
+            tools:listitem="@layout/row_main_3"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/tv_done"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_34sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/bg_solid_dull_red_corner_12sdp"
+            android:gravity="center"
+            android:text="@string/select"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="@dimen/_14sdp"
+            style="@style/CustomTextViewTheme_Regular"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sp_cities" />
+
+        <include
+            android:id="@+id/inc_progress"
+            layout="@layout/layout_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_done"
+            app:layout_constraintEnd_toEndOf="@+id/tv_done"
+            app:layout_constraintStart_toStartOf="@id/tv_done"
+            app:layout_constraintTop_toTopOf="@id/tv_done" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

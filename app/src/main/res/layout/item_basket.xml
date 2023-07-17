@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        android:paddingBottom="@dimen/_6sdp"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_product"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:src="@drawable/mask_group_121"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_remove"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            app:layout_constraintEnd_toStartOf="@id/img_product"
+            android:src="@drawable/ic_basket_red"
+            app:layout_constraintStart_toStartOf="@id/img_product"
+            app:layout_constraintBottom_toBottomOf="@id/img_product"
+            android:layout_marginBottom="@dimen/_24sdp"
+            app:layout_constraintTop_toTopOf="@id/img_product"
+            tools:ignore="RtlCompat" />
+
+        <ImageView
+            android:id="@+id/img_minus"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@drawable/bg_circle_red"
+            android:src="@drawable/ic_remove"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_product" />
+
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:text="11"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintBottom_toBottomOf="@id/img_minus"
+            app:layout_constraintEnd_toStartOf="@id/img_minus"
+            app:layout_constraintTop_toTopOf="@id/img_minus" />
+
+        <ImageView
+            android:id="@+id/img_plus"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:background="@drawable/bg_circle_red"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="@id/img_minus"
+            app:layout_constraintEnd_toStartOf="@id/tv_quantity"
+            app:layout_constraintTop_toTopOf="@id/img_minus" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:gravity="right"
+            android:text="خروف حرى"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintEnd_toStartOf="@id/img_plus"
+            app:layout_constraintTop_toTopOf="@id/img_product" />
+
+        <TextView
+            android:id="@+id/tv_product_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="right"
+            android:lines="1"
+            android:text="التقطيع ( اربع قطع ) - الحجم ( 50 كيلو ) - العدد(2)"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintEnd_toEndOf="@id/img_minus"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_name" />
+
+        <TextView
+            android:id="@+id/tv_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="right"
+            android:lines="1"
+            android:text="التقطيع ( ارب)"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_13ssp"
+            style="@style/CustomTextViewTheme_Bold"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_details" />
+
+        <TextView
+            android:id="@+id/tv_product_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:gravity="right"
+            android:background="@drawable/ic_red_line"
+            android:lines="1"
+            android:text="التقطيع ( اربع قط)"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            style="@style/CustomTextViewTheme_Regular"
+            app:layout_constraintStart_toEndOf="@id/tv_product_price"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_details" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_product_price" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        android:background="@color/white"
+        tools:context=".ui.addresses.AddressFragment">
+
+        <include
+            android:id="@+id/tb"
+            layout="@layout/tb_address" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_address"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:layout_marginVertical="@dimen/_18sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/tv_add_address"
+            app:layout_constraintTop_toBottomOf="@id/tb"
+            tools:listitem="@layout/item_address" />
+
+        <include
+            android:id="@+id/inc_progress"
+            layout="@layout/layout_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tv_add_address"
+            app:layout_constraintEnd_toEndOf="@+id/tv_add_address"
+            app:layout_constraintStart_toStartOf="@id/tv_add_address"
+            app:layout_constraintTop_toBottomOf="@id/tb" />
+
+        <TextView
+            android:id="@+id/tv_empty_addresses"
+            style="@style/CustomTextViewTheme_Bon_Font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/empty_addresses"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_18ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tv_add_address"
+            app:layout_constraintEnd_toEndOf="@+id/tv_add_address"
+            app:layout_constraintStart_toStartOf="@id/tv_add_address"
+            app:layout_constraintTop_toBottomOf="@id/tb"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/tv_add_address"
+            style="@style/CustomTextViewTheme_Bold"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_38sdp"
+            android:layout_marginHorizontal="@dimen/_48sdp"
+            android:layout_marginBottom="@dimen/_14sdp"
+            android:background="@drawable/bg_solid_gray_corner_7sdp"
+            android:gravity="center"
+            android:text="@string/add_address"
+            android:textColor="@color/dull_red"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
