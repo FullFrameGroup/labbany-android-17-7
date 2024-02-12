@@ -4,42 +4,32 @@ import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity
 
 class CheckoutBroadcastReceiver : BroadcastReceiver() {
 
-    override fun onReceive(context: Context?, oldIntent: Intent?) {
-        val action = oldIntent?.action
+    override fun onReceive(context: Context, intent: Intent?) {
+        val action = intent?.action
 
-        Log.e(TAG, "onReceive: 01")
         if (CheckoutActivity.ACTION_ON_BEFORE_SUBMIT == action) {
-            val paymentBrand = oldIntent.getStringExtra(CheckoutActivity.EXTRA_PAYMENT_BRAND)
-            val checkoutId = oldIntent.getStringExtra(CheckoutActivity.EXTRA_CHECKOUT_ID)
+            val paymentBrand = intent.getStringExtra(CheckoutActivity.EXTRA_PAYMENT_BRAND)
+            val checkoutId = intent.getStringExtra(CheckoutActivity.EXTRA_CHECKOUT_ID)
+            val senderComponentName: ComponentName? = intent.getParcelableExtra(
+                CheckoutActivity.EXTRA_SENDER_COMPONENT_NAME
+            )
 
-            val senderComponentName: ComponentName? = oldIntent.getParcelableExtra(CheckoutActivity.EXTRA_SENDER_COMPONENT_NAME)
-
-            /* This callback can be used to request a new checkout ID if selected payment brand requires
+            /* You can use this callback to request a new checkout ID if selected payment brand requires
                some specific parameters or just send back the same checkout id to continue checkout process */
-            val intent = Intent(CheckoutActivity.ACTION_ON_BEFORE_SUBMIT)
-            intent.component = senderComponentName
-            if (senderComponentName != null) {
-                intent.setPackage(senderComponentName.packageName)
-            }
+            val newIntent = Intent(CheckoutActivity.ACTION_ON_BEFORE_SUBMIT)
+            newIntent.component = senderComponentName
+            newIntent.setPackage(senderComponentName!!.packageName)
+            newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            newIntent.putExtra(CheckoutActivity.EXTRA_CHECKOUT_ID, checkoutId)
 
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra(CheckoutActivity.EXTRA_CHECKOUT_ID, checkoutId)
+            /* You also can abort the transaction by sending the CheckoutActivity.EXTRA_TRANSACTION_ABORTED */
+            newIntent.putExtra(CheckoutActivity.EXTRA_TRANSACTION_ABORTED, true)
 
-            /* Also it can be used to cancel the checkout process by sending
-               the CheckoutActivity.EXTRA_CANCEL_CHECKOUT */
-//            intent.putExtra(CheckoutActivity.EXTRA_TRANSACTION_ABORTED, false)
-
-            context?.startActivity(intent)
+            context.startActivity(newIntent)
         }
     }
-
-    companion object{
-        private const val TAG="MMR"
-    }
-
 }

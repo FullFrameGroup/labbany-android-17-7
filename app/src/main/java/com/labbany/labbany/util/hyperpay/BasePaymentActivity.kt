@@ -1,3 +1,4 @@
+/*
 package com.labbany.labbany.util.hyperpay
 
 import android.content.Intent
@@ -21,10 +22,12 @@ import kotlinx.coroutines.launch
 
 private const val STATE_RESOURCE_PATH = "STATE_RESOURCE_PATH"
 
+*/
 /**
  * Represents a base activity for making the payments with mobile sdk.
  * This activity handles payment callbacks.
- */
+ *//*
+
 @ExperimentalCoroutinesApi
 open class BasePaymentActivity :AppCompatActivity() {
 
@@ -43,7 +46,9 @@ open class BasePaymentActivity :AppCompatActivity() {
 
         setIntent(intent)
 
-        /* Check of the intent contains the callback scheme */
+        */
+/* Check of the intent contains the callback scheme *//*
+
         if (resourcePath != null && hasCallBackScheme(intent)) {
             requestPaymentStatus(resourcePath!!)
         }
@@ -51,22 +56,32 @@ open class BasePaymentActivity :AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        /* Override onActivityResult to get notified when the checkout process is done */
+        */
+/* Override onActivityResult to get notified when the checkout process is done *//*
+
         if (requestCode == CheckoutActivity.REQUEST_CODE_CHECKOUT) {
             when (resultCode) {
                 CheckoutActivity.RESULT_OK -> {
-                    /* Transaction completed */
+                    */
+/* Transaction completed *//*
+
                     val transaction: Transaction = data!!.getParcelableExtra(
                             CheckoutActivity.CHECKOUT_RESULT_TRANSACTION)!!
 
                     resourcePath = data.getStringExtra(CheckoutActivity.CHECKOUT_RESULT_RESOURCE_PATH)
 
-                    /* Check the transaction type */
+                    */
+/* Check the transaction type *//*
+
                     if (transaction.transactionType == TransactionType.SYNC) {
-                        /* Check the status of synchronous transaction */
+                        */
+/* Check the status of synchronous transaction *//*
+
                         requestPaymentStatus(resourcePath!!)
                     } else {
-                        /* Asynchronous transaction is processed in the onNewIntent() */
+                        */
+/* Asynchronous transaction is processed in the onNewIntent() *//*
+
 //                        hideProgressBar()
                     }
                 }
@@ -157,4 +172,4 @@ open class BasePaymentActivity :AppCompatActivity() {
                 WalletConstants.CARD_NETWORK_AMEX
         )
     }
-}
+}*/
