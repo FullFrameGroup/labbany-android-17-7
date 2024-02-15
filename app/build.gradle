@@ -70,8 +70,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.google.android.gms:play-services-wallet:19.1.0'
-    implementation files('libs/oppwa.mobile-6.2.0.aar')
-    implementation files('libs/ipworks3ds-sdk-deploy.aar')
+//    implementation files('libs/oppwa.mobile-6.2.0.aar')
+    implementation files('libs/oppwa.mobile-3.14.0.aar')
+//    implementation files('libs/ipworks3ds-sdk-deploy.aar')
 //    implementation files('libs/ipworks3ds-sdk-8648.aar')
 
     testImplementation 'junit:junit:4.13.2'
