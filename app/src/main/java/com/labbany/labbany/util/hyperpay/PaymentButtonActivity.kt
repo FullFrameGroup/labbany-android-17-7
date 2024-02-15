@@ -29,8 +29,8 @@ class PaymentButtonActivity : BasePaymentActivity() {
         initPaymentButton()
     }
 
-    override fun onCheckoutIdReceived(checkoutId: String?) {
-        super.onCheckoutIdReceived(checkoutId)
+   fun onCheckoutIdReceived(checkoutId: String?) {
+//        super.onCheckoutIdReceived(checkoutId)
 
         checkoutId?.let { pay(checkoutId) }
     }
@@ -42,7 +42,7 @@ class PaymentButtonActivity : BasePaymentActivity() {
         paymentButtonFragment.paymentBrand = Constants.Config.PAYMENT_BUTTON_BRAND
         paymentButtonFragment.paymentButton.apply {
             setOnClickListener {
-                requestCheckoutId()
+//                requestCheckoutId()
             }
 
             /* Customize the payment button (except Google Pay button) */
@@ -52,9 +52,9 @@ class PaymentButtonActivity : BasePaymentActivity() {
     }
 
     private fun pay(checkoutId: String) {
-        val checkoutSettings = createCheckoutSettings(checkoutId, getString(R.string.payment_button_callback_scheme))
+      /*  val checkoutSettings = createCheckoutSettings(checkoutId, getString(R.string.payment_button_callback_scheme))
 
-        /* Set componentName if you want to receive callbacks from the checkout */
+        *//* Set componentName if you want to receive callbacks from the checkout *//*
         val componentName = ComponentName(packageName, CheckoutBroadcastReceiver::class.java.name)
 
         try {
@@ -62,5 +62,5 @@ class PaymentButtonActivity : BasePaymentActivity() {
         } catch (e: PaymentException) {
 //            showAlertDialog(R.string.error_message)
         }
-    }
+    */}
 }

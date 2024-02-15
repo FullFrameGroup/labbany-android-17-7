@@ -10,7 +10,6 @@ object HyperUtils {
         return CheckoutSettings(checkoutId, Constants.Config.PAYMENT_BRANDS,
             Connect.ProviderMode.LIVE)
             .setSkipCVVMode(CheckoutSkipCVVMode.FOR_STORED_CARDS)
-            .setShopperResultUrl("com.labbany://result")
     }
 
     enum class PaymentMode(var value:String){

@@ -109,17 +109,17 @@
             android:name=".util.hyperpay.CheckoutBroadcastReceiver"
             android:exported="false" />
 
-        <service
-            android:name="com.oppwa.mobile.connect.service.ConnectService"
-            android:exported="false" />
+        <!--        <service-->
+        <!--            android:name="com.oppwa.mobile.connect.service.ConnectService"-->
+        <!--            android:exported="false" />-->
 
         <activity
             android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"
-            android:exported="false"
+            android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/NewCheckoutTheme"
             android:windowSoftInputMode="adjustResize"
-            tools:replace="android:theme" />
+            tools:replace="android:theme,android:exported" />
 
     </application>
 

@@ -38,12 +38,15 @@ open class BasePaymentActivity :AppCompatActivity() {
         }
     }
 
+/*
     public override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
 
         setIntent(intent)
 
-        /* Check of the intent contains the callback scheme */
+        */
+/* Check of the intent contains the callback scheme *//*
+
         if (resourcePath != null && hasCallBackScheme(intent)) {
             requestPaymentStatus(resourcePath!!)
         }
@@ -51,22 +54,32 @@ open class BasePaymentActivity :AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        /* Override onActivityResult to get notified when the checkout process is done */
-        if (requestCode == CheckoutActivity.REQUEST_CODE_CHECKOUT) {
+        */
+/* Override onActivityResult to get notified when the checkout process is done *//*
+
+        if (requestCode == CheckoutActivity.RESULT_OK) {
             when (resultCode) {
                 CheckoutActivity.RESULT_OK -> {
-                    /* Transaction completed */
+                    */
+/* Transaction completed *//*
+
                     val transaction: Transaction = data!!.getParcelableExtra(
                             CheckoutActivity.CHECKOUT_RESULT_TRANSACTION)!!
 
                     resourcePath = data.getStringExtra(CheckoutActivity.CHECKOUT_RESULT_RESOURCE_PATH)
 
-                    /* Check the transaction type */
+                    */
+/* Check the transaction type *//*
+
                     if (transaction.transactionType == TransactionType.SYNC) {
-                        /* Check the status of synchronous transaction */
+                        */
+/* Check the status of synchronous transaction *//*
+
                         requestPaymentStatus(resourcePath!!)
                     } else {
-                        /* Asynchronous transaction is processed in the onNewIntent() */
+                        */
+/* Asynchronous transaction is processed in the onNewIntent() *//*
+
 //                        hideProgressBar()
                     }
                 }
@@ -157,4 +170,5 @@ open class BasePaymentActivity :AppCompatActivity() {
                 WalletConstants.CARD_NETWORK_AMEX
         )
     }
+*/
 }
