@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.labbany.labbany'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.labbany.labbany"
         minSdk 24
-        targetSdk 34
+        targetSdk 33
         versionCode 7
         versionName "2.2"
         multiDexEnabled true
@@ -70,10 +70,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.google.android.gms:play-services-wallet:19.1.0'
-//    implementation files('libs/oppwa.mobile-6.2.0.aar')
-    implementation files('libs/oppwa.mobile-3.14.0.aar')
-//    implementation files('libs/ipworks3ds-sdk-deploy.aar')
-//    implementation files('libs/ipworks3ds-sdk-8648.aar')
+    implementation files('libs/oppwa.mobile-6.2.0-release.aar')
+    implementation files('libs/ipworks3ds_sdk_8648_deploy.aar')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -140,6 +138,15 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.4.1"
 
     implementation fileTree(include: ["*.aar"], dir: "libs")
-    implementation 'androidx.browser:browser:1.7.0'
-    implementation "androidx.webkit:webkit:1.9.0"
+    implementation 'androidx.browser:browser:1.4.0'
+
+    /////////////////////
+
+
+    implementation 'androidx.webkit:webkit:1.4.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.afterpay:afterpay-android:4.4.0'
+
+    ////////////////////
+
 }

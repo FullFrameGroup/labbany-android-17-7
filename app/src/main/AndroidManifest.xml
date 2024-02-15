@@ -7,17 +7,10 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS"/>
 
     <application
         android:name=".di.BaseApp"
@@ -116,9 +109,9 @@
             android:name=".util.hyperpay.CheckoutBroadcastReceiver"
             android:exported="false" />
 
-<!--        <service-->
-<!--            android:name="com.oppwa.mobile.connect.service.ConnectService"-->
-<!--            android:exported="false" />-->
+        <!--        <service-->
+        <!--            android:name="com.oppwa.mobile.connect.service.ConnectService"-->
+        <!--            android:exported="false" />-->
 
         <activity
             android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"

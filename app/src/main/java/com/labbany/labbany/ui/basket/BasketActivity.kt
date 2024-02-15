@@ -34,12 +34,19 @@ import com.labbany.labbany.ui.views.SharedViewModel
 import com.labbany.labbany.util.*
 import com.labbany.labbany.util.hyperpay.CheckoutBroadcastReceiver
 import com.labbany.labbany.util.hyperpay.HyperUtils.createCheckoutSettings
-import com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity
+import com.oppwa.mobile.connect.checkout.meta.CheckoutActivityResult
+import com.oppwa.mobile.connect.checkout.meta.CheckoutActivityResultContract
+import com.oppwa.mobile.connect.checkout.meta.CheckoutSettings
 import com.oppwa.mobile.connect.exception.PaymentError
 import com.oppwa.mobile.connect.exception.PaymentException
 import com.oppwa.mobile.connect.payment.CheckoutInfo
 import com.oppwa.mobile.connect.payment.PaymentParams
-import com.oppwa.mobile.connect.provider.*
+import com.oppwa.mobile.connect.provider.Connect
+import com.oppwa.mobile.connect.provider.ITransactionListener
+import com.oppwa.mobile.connect.provider.OppPaymentProvider
+import com.oppwa.mobile.connect.provider.ThreeDSWorkflowListener
+import com.oppwa.mobile.connect.provider.Transaction
+import com.oppwa.mobile.connect.provider.threeds.v2.model.ThreeDSConfig
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -75,6 +82,18 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
     private val timeClickStateFlow = MutableStateFlow(true)
     private lateinit var paymentProvider: OppPaymentProvider
     private var transactionState = TransactionState.NEW
+    private lateinit var  threeDSConfig: ThreeDSConfig
+
+    val threeDSWorkflowListener: ThreeDSWorkflowListener = object : ThreeDSWorkflowListener {
+        override fun onThreeDSChallengeRequired(): Activity {
+            // provide your Activity
+            return this@BasketActivity
+        }
+
+        override fun onThreeDSConfigRequired(): ThreeDSConfig {
+            return threeDSConfig
+        }
+    }
 
     private val addressesResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -89,48 +108,26 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
             }
         }
 
-    private val hyperResultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-
-            val data = result.data
-            when (result.resultCode) {
-                CheckoutActivity.RESULT_OK -> {
-                    /* Transaction completed */
-                    val transaction: Transaction = data!!.getParcelableExtra(
-                        CheckoutActivity.CHECKOUT_RESULT_TRANSACTION
-                    )!!
-
-                    val resourcePath =
-                        data.getStringExtra(CheckoutActivity.CHECKOUT_RESULT_RESOURCE_PATH)
-
-                    Log.e(TAG, "hyper pay transaction: r1")
-                    /* Check the transaction type */
-                    if (transaction.transactionType == TransactionType.SYNC) {
-                        /* Check the status of synchronous transaction */
-                        Log.e(TAG, "hyper pay transaction: rs")
-                        paymentStatus(resourcePath!!)
-                    } else {
-                        /* Asynchronous transaction is processed in the onNewIntent() */
-                        visProgress(false, false)
-                    }
-                }
-                CheckoutActivity.RESULT_CANCELED -> {
-                    visProgress(false, false)
-                    Log.e(TAG, "hyper pay transaction: rc")
-                }
-                CheckoutActivity.RESULT_ERROR -> {
-                    visProgress(false, false)
-
-                    val error: PaymentError = data!!.getParcelableExtra(
-                        CheckoutActivity.CHECKOUT_RESULT_ERROR
-                    )!!
-
-                    Log.e(TAG, "hyper pay transaction: re ${error.errorCode.errorCode}")
-                    Log.e(TAG, "hyper pay transaction: re ${error.errorMessage}")
-                    Log.e(TAG, "hyper pay transaction: re ${error.errorInfo}")
-                }
-            }
+    private val checkoutLauncher =
+        registerForActivityResult(CheckoutActivityResultContract()) { result: CheckoutActivityResult ->
+            handleCheckoutResult(result)
         }
+
+    private fun handleCheckoutResult(result: CheckoutActivityResult) {
+
+        if (result.isCanceled) {
+            // shopper cancelled the checkout process
+            visProgress(false, false)
+            return
+        }
+
+        val resourcePath = result.resourcePath
+
+        if (resourcePath != null) {
+            // request payment status using the resourcePath
+            paymentStatus(resourcePath!!)
+        }
+    }
 
     /*private fun handleOrderResult(result: GeideaResult<Order>) {
         when (result) {
@@ -156,15 +153,15 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
             }
         }
     }*/
-/*
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
-        return binding.root
-    }*/
+    /*
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View {
+            // Inflate the layout for this fragment
+            binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
+            return binding.root
+        }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -190,7 +187,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
         binding.tvAddBuy.setOnClickListener {
             visaTypeAdapter.setCashSelected(mContext)
 
-            if (visaTypeAdapter.selectedVisaType==null){
+            if (visaTypeAdapter.selectedVisaType == null) {
                 showHelperDialog(getString(R.string.empty_payment_type))
                 return@setOnClickListener
             }
@@ -234,13 +231,16 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Idle -> {
                         return@collect
                     }
+
                     is NetworkState.Loading -> {
                         visProgress(progressState = true, resultState = false)
                     }
+
                     is NetworkState.Error -> {
                         visProgress(progressState = false, resultState = false)
                         it.handleErrors(mContext, null)
                     }
+
                     is NetworkState.Result<*> -> {
                         val response = it.response as CartResponse
 
@@ -250,6 +250,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                             response.success -> {
                                 ui(response)
                             }
+
                             else -> NetworkState.Error(response.code)
                                 .handleErrors(mContext)
 
@@ -267,13 +268,16 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Idle -> {
                         return@collect
                     }
+
                     is NetworkState.Loading -> {
                         visProgress(true, resultState = true)
                     }
+
                     is NetworkState.Error -> {
                         visProgress(false, resultState = true)
                         it.handleErrors(mContext, null)
                     }
+
                     is NetworkState.Result<*> -> {
                         val response = it.response as MakeOrderResponse
 
@@ -295,6 +299,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                                     requestCheckoutId(getCartId())
                                 }
                             }
+
                             else -> NetworkState.Error(response.code)
                                 .handleErrors(mContext)
 
@@ -311,13 +316,16 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Idle -> {
                         return@collect
                     }
+
                     is NetworkState.Loading -> {
                         visProgress(progressState = true, resultState = false)
                     }
+
                     is NetworkState.Error -> {
                         visProgress(progressState = false, resultState = false)
                         it.handleErrors(mContext, null)
                     }
+
                     is NetworkState.Result<*> -> {
                         val response = it.response as CheckoutIdResponse
 
@@ -326,6 +334,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                                 checkoutId = response.checkoutId
                                 startPayment(response.checkoutId)
                             }
+
                             else -> {
                                 visProgress(progressState = false, resultState = false)
                                 NetworkState.Error(response.code)
@@ -344,13 +353,16 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Idle -> {
                         return@collect
                     }
+
                     is NetworkState.Loading -> {
                         visProgress(progressState = true, resultState = false)
                     }
+
                     is NetworkState.Error -> {
                         visProgress(progressState = false, resultState = false)
                         it.handleErrors(mContext, null)
                     }
+
                     is NetworkState.Result<*> -> {
                         val data = it.response as JsonObject
 
@@ -364,6 +376,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                             data.get("success").asBoolean -> {
                                 sendPaymentDetails(response.data.response)
                             }
+
                             else -> {
                                 visProgress(progressState = false, resultState = false)
                                 NetworkState.Error(response.code, data.get("msg").asString)
@@ -387,13 +400,16 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Idle -> {
                         return@collect
                     }
+
                     is NetworkState.Loading -> {
                         visProgress(progressState = true, resultState = false)
                     }
+
                     is NetworkState.Error -> {
                         visProgress(progressState = false, resultState = false)
                         it.handleErrors(mContext, null)
                     }
+
                     is NetworkState.Result<*> -> {
                         val response = it.response as GeneralResponse
 
@@ -493,13 +509,16 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Idle -> {
                         return@collect
                     }
+
                     is NetworkState.Loading -> {
                         visCouponProgress(true)
                     }
+
                     is NetworkState.Error -> {
                         visCouponProgress(false)
                         it.handleErrors(mContext, null)
                     }
+
                     is NetworkState.Result<*> -> {
                         val response = it.response as OrderCouponResponse
 
@@ -513,21 +532,27 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                                     response.data!!.Coupon
                                 )
                             }
+
                             response.code == Constants.Coupons.Not_Found_CODE -> {
                                 showCouponMessage(getString(R.string.not_found_coupon), false)
                             }
+
                             response.code == Constants.Coupons.EXPIRED_CODE -> {
                                 showCouponMessage(getString(R.string.expired_coupon), false)
                             }
+
                             response.code == Constants.Coupons.CITY_CODE -> {
                                 showCouponMessage(getString(R.string.no_city_coupon), false)
                             }
+
                             response.code == Constants.Coupons.MAX_CODE -> {
                                 showCouponMessage(getString(R.string.max_coupon), false)
                             }
+
                             response.code == Constants.Coupons.NO_WALLET_CODE -> {
                                 showCouponMessage(getString(R.string.not_wallet_coupon), false)
                             }
+
                             else -> NetworkState.Error(response.code)
                                 .handleErrors(mContext)
 
@@ -595,10 +620,13 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                 when (it) {
                     is NetworkState.Error -> {
                     }
+
                     is NetworkState.Idle -> {
                     }
+
                     is NetworkState.Loading -> {
                     }
+
                     is NetworkState.Result<*> -> {
                         selectedVisa = it.response as VisaModel
 
@@ -628,12 +656,14 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
             is NetworkState.Error -> {
             }
+
             is NetworkState.Idle -> {
                 validateMakeOrder()
             }
 
             is NetworkState.Loading -> {
             }
+
             is NetworkState.Result<*> -> {
 
                 val response =
@@ -644,6 +674,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
                         requestCheckoutId(getCartId())
                     }
+
                     else -> NetworkState.Error(response.code)
                         .handleErrors(mContext)
 
@@ -903,21 +934,21 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
         Log.e(TAG, "onCardBrandSelected: 1")
 
-/*        val isValidate = paymentValidate()
+        /*        val isValidate = paymentValidate()
 
-        if (!isValidate) return false
+                if (!isValidate) return false
 
-//        testPaymentSdk= TestPaymentSdk(mContext,paymentLauncher)
+        //        testPaymentSdk= TestPaymentSdk(mContext,paymentLauncher)
 
-        val bundle = Bundle()
-        bundle.putInt(Constants.VISA_TYPE_ID, cardBrand.visa_type_id)
-        bundle.putString(Constants.VISA_TYPE_NAME, cardBrand.visa_type_name)
-//        bundle.putSerializable(Constants.ON_VISA_SELECTED, this as OnVisaSelected)
+                val bundle = Bundle()
+                bundle.putInt(Constants.VISA_TYPE_ID, cardBrand.visa_type_id)
+                bundle.putString(Constants.VISA_TYPE_NAME, cardBrand.visa_type_name)
+        //        bundle.putSerializable(Constants.ON_VISA_SELECTED, this as OnVisaSelected)
 
-        if (!cardBrand.visa_type_img.isNullOrEmpty())
-            bundle.putString(Constants.IMAGE, cardBrand.visa_type_img)
+                if (!cardBrand.visa_type_img.isNullOrEmpty())
+                    bundle.putString(Constants.IMAGE, cardBrand.visa_type_img)
 
-        navController.navigate(R.id.visaDetailsFragment, bundle)*/
+                navController.navigate(R.id.visaDetailsFragment, bundle)*/
 
         checkOrderSentBefore()
 
@@ -1101,8 +1132,12 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
     private fun initPayment() {
 
-        paymentProvider = OppPaymentProvider(mContext, Connect.ProviderMode.LIVE)
+        threeDSConfig = ThreeDSConfig.Builder()
+            .setThreeDSRequestorAppUrlUsed(true)
+            .build()
 
+        paymentProvider = OppPaymentProvider(mContext, Connect.ProviderMode.LIVE)
+        paymentProvider.setThreeDSWorkflowListener(threeDSWorkflowListener)
     }
 
     private fun requestCheckoutId(cartId: Int) {
@@ -1144,19 +1179,28 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
         openCheckoutUI(checkoutId)
     }
 
+
     private fun openCheckoutUI(checkoutId: String) {
+
+
         val checkoutSettings =
             createCheckoutSettings(checkoutId)
+        val configBuilder = ThreeDSConfig.Builder()
+        checkoutSettings.setThreeDS2Config(configBuilder.build())
 
-        /* Set componentName if you want to receive callbacks from the checkout */
+        checkoutSettings.threeDS2Config = threeDSConfig
+
+            /* Set componentName if you want to receive callbacks from the checkout */
         val componentName =
             ComponentName(mContext.packageName, CheckoutBroadcastReceiver::class.java.name)
 
         /* Set up the Intent and start the checkout activity */
-        val intent = checkoutSettings.createCheckoutActivityIntent(mContext, componentName)
+//        val intent = checkoutSettings.createCheckoutActivityIntent(mContext, componentName)
 
-        hyperResultLauncher.launch(intent)
+        checkoutLauncher.launch(checkoutSettings)
+//        hyperResultLauncher.launch(intent)
     }
+
 
     private fun launchPaymentIntent(paymentParams: PaymentParams) {
         // Start the payment flow now!

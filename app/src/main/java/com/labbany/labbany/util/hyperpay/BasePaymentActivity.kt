@@ -1,4 +1,3 @@
-/*
 package com.labbany.labbany.util.hyperpay
 
 import android.content.Intent
@@ -22,12 +21,10 @@ import kotlinx.coroutines.launch
 
 private const val STATE_RESOURCE_PATH = "STATE_RESOURCE_PATH"
 
-*/
 /**
  * Represents a base activity for making the payments with mobile sdk.
  * This activity handles payment callbacks.
- *//*
-
+ */
 @ExperimentalCoroutinesApi
 open class BasePaymentActivity :AppCompatActivity() {
 
@@ -41,6 +38,7 @@ open class BasePaymentActivity :AppCompatActivity() {
         }
     }
 
+/*
     public override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
 
@@ -59,7 +57,7 @@ open class BasePaymentActivity :AppCompatActivity() {
         */
 /* Override onActivityResult to get notified when the checkout process is done *//*
 
-        if (requestCode == CheckoutActivity.REQUEST_CODE_CHECKOUT) {
+        if (requestCode == CheckoutActivity.RESULT_OK) {
             when (resultCode) {
                 CheckoutActivity.RESULT_OK -> {
                     */
@@ -172,4 +170,5 @@ open class BasePaymentActivity :AppCompatActivity() {
                 WalletConstants.CARD_NETWORK_AMEX
         )
     }
-}*/
+*/
+}

@@ -1,4 +1,3 @@
-/*
 package com.labbany.labbany.util.hyperpay
 
 import android.content.ComponentName
@@ -9,11 +8,9 @@ import com.oppwa.mobile.connect.checkout.dialog.PaymentButtonFragment
 import com.oppwa.mobile.connect.exception.PaymentException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-*/
 /**
  * Represents an activity for making payments via {@link PaymentButtonSupportFragment}.
- *//*
-
+ */
 @ExperimentalCoroutinesApi
 class PaymentButtonActivity : BasePaymentActivity() {
 
@@ -25,17 +22,15 @@ class PaymentButtonActivity : BasePaymentActivity() {
         setContentView(R.layout.activity_main)
 
         val amount = Constants.Config.AMOUNT + " " + Constants.Config.CURRENCY
-        */
-/*amount_text_view.text = amount
+        /*amount_text_view.text = amount
 
-        progressBar = progress_bar_payment_button*//*
-
+        progressBar = progress_bar_payment_button*/
 
         initPaymentButton()
     }
 
-    override fun onCheckoutIdReceived(checkoutId: String?) {
-        super.onCheckoutIdReceived(checkoutId)
+   fun onCheckoutIdReceived(checkoutId: String?) {
+//        super.onCheckoutIdReceived(checkoutId)
 
         checkoutId?.let { pay(checkoutId) }
     }
@@ -47,23 +42,19 @@ class PaymentButtonActivity : BasePaymentActivity() {
         paymentButtonFragment.paymentBrand = Constants.Config.PAYMENT_BUTTON_BRAND
         paymentButtonFragment.paymentButton.apply {
             setOnClickListener {
-                requestCheckoutId()
+//                requestCheckoutId()
             }
 
-            */
-/* Customize the payment button (except Google Pay button) *//*
-
+            /* Customize the payment button (except Google Pay button) */
             setBackgroundResource(R.drawable.bg_circle_red)
             setColorFilter(Color.rgb(255, 255, 255))
         }
     }
 
     private fun pay(checkoutId: String) {
-        val checkoutSettings = createCheckoutSettings(checkoutId, getString(R.string.payment_button_callback_scheme))
+      /*  val checkoutSettings = createCheckoutSettings(checkoutId, getString(R.string.payment_button_callback_scheme))
 
-        */
-/* Set componentName if you want to receive callbacks from the checkout *//*
-
+        *//* Set componentName if you want to receive callbacks from the checkout *//*
         val componentName = ComponentName(packageName, CheckoutBroadcastReceiver::class.java.name)
 
         try {
@@ -71,5 +62,5 @@ class PaymentButtonActivity : BasePaymentActivity() {
         } catch (e: PaymentException) {
 //            showAlertDialog(R.string.error_message)
         }
-    }
-}*/
+    */}
+}
