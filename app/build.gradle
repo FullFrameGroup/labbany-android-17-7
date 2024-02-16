@@ -14,8 +14,8 @@ android {
         applicationId "com.labbany.labbany"
         minSdk 24
         targetSdk 33
-        versionCode 8
-        versionName "2.2.1"
+        versionCode 9
+        versionName "2.2.2"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         useLibrary 'org.apache.http.legacy'
@@ -71,7 +71,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     implementation 'com.google.android.gms:play-services-wallet:19.1.0'
     implementation files('libs/oppwa.mobile-6.2.0-release.aar')
-    implementation files('libs/ipworks3ds_sdk_8648_deploy.aar')
+    implementation files('libs/ipworks3ds_sdk_8648.aar')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
