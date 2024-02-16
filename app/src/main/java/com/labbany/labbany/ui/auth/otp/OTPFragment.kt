@@ -99,7 +99,7 @@ class OTPFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done $response")
+//                              //  Log.e(TAG, "result: done $response")
 
                                 binding.otpView.setOTP(response.data.otp)
                             }
@@ -148,7 +148,7 @@ class OTPFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done $response")
+//                              //  Log.e(TAG, "result: done $response")
 
                                 if (requireArguments().containsKey(Constants.ACTION)) {
                                     if (requireArguments().getString(Constants.ACTION) == Constants.FORGET_PASSWORD) {

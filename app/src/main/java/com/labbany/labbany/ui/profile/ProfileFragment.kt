@@ -169,7 +169,7 @@ class ProfileFragment : Fragment() {
                             response.success -> {
 
                                 visProgress(state = false, success = true)
-                                Log.e(TAG, "result: done $response")
+//                              //  Log.e(TAG, "result: done $response")
 
                                 handleUIAndEditClick(response.data!!)
 
@@ -197,7 +197,7 @@ class ProfileFragment : Fragment() {
         if (!data.image.isNullOrEmpty())
             Picasso.get().load(data.image).into(binding.layoutProfileHeader.civUser)
 
-        Log.e(TAG, "handleUIAndEditClick: data $data")
+//      //  Log.e(TAG, "handleUIAndEditClick: data $data")
 
         binding.layoutProfileHeader.tvEdit.setOnClickListener {
             val userData = UserModelBySerializable(

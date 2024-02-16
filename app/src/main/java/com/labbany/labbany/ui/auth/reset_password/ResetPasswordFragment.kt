@@ -86,7 +86,7 @@ class ResetPasswordFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done $response")
+                              //  Log.e(TAG, "result: done $response")
 
                                 HelperDialog(
                                     getString(R.string.succ_reset_password),

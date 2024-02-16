@@ -47,11 +47,11 @@ class CouponExchangeFragment : Fragment() {
 
         binding.tvSave.setOnClickListener {
 
-            Log.e(TAG, "onViewCreated: 1")
+          //  Log.e(TAG, "onViewCreated: 1")
 
             if (!verify()) return@setOnClickListener
 
-            Log.e(TAG, "onViewCreated: 2")
+          //  Log.e(TAG, "onViewCreated: 2")
 
             callApi()
 
@@ -132,7 +132,7 @@ class CouponExchangeFragment : Fragment() {
         if (!Utils.validateET(binding.etCoupon, getString(R.string.enter_coupon_code))) isNull =
             true
 
-        Log.e(TAG, "verify: $isNull")
+      //  Log.e(TAG, "verify: $isNull")
 
         return !isNull
     }

@@ -35,8 +35,8 @@ class ComplaintsViewModel(private val complaintsServices: ComplaintsServices) : 
                 _complaintsStateFlow.value = NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
             }.onSuccess {
 
-                Log.e(TAG, "complaints: $it")
-                Log.e(TAG, "complaints: ${it.body()}")
+//              //  Log.e(TAG, "complaints: $it")
+//              //  Log.e(TAG, "complaints: ${it.body()}")
                 if (it.body() != null)
                     _complaintsStateFlow.value = NetworkState.Result(it.body())
                 else

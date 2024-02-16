@@ -84,7 +84,7 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 val address = addresses[0]
 
-                Log.e(TAG, "onCreate: address ${addresses[0]}")
+//              //  Log.e(TAG, "onCreate: address ${addresses[0]}")
 
                 val locationName =
 //                    address.adminArea + " " + address.subAdminArea + " " + address.thoroughfare
@@ -128,7 +128,7 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
         /*   mMap.setOnCameraIdleListener { //get lat-lng at the center by calling
                myLocation = mMap.cameraPosition.target
 
-               Log.e(TAG, "Camera OnCameraIdleListener: 2")
+             //  Log.e(TAG, "Camera OnCameraIdleListener: 2")
 
                setLocationUI(false)
 
@@ -136,7 +136,7 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
    */
         mMap.setOnMapClickListener {
 
-            Log.e(TAG, "onMapReady: ma")
+          //  Log.e(TAG, "onMapReady: ma")
             myLocation = it
             setLocationUI(false)
 
@@ -145,15 +145,15 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
         mMap.setOnCameraMoveStartedListener { reason: Int ->
 
-            Log.e(TAG, "onMapReady: a12")
+          //  Log.e(TAG, "onMapReady: a12")
 
             when (reason) {
                 GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE -> {
-                    Log.e(TAG, "The user gestured on the map 0.")
+                  //  Log.e(TAG, "The user gestured on the map 0.")
 
                     if (myLocation?.longitude != mMap.cameraPosition.target.longitude && myLocation?.latitude != mMap.cameraPosition.target.latitude) {
 
-                        Log.e(TAG, "The user gestured on the map 1.")
+                      //  Log.e(TAG, "The user gestured on the map 1.")
                         myLocation = mMap.cameraPosition.target
                         setLocationUI(false)
 
@@ -164,11 +164,11 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 GoogleMap.OnCameraMoveStartedListener
                     .REASON_API_ANIMATION -> {
-                    Log.e(TAG, "The user tapped something on the map.")
+                  //  Log.e(TAG, "The user tapped something on the map.")
                 }
                 GoogleMap.OnCameraMoveStartedListener
                     .REASON_DEVELOPER_ANIMATION -> {
-                    Log.e(TAG, "The app moved the camera.")
+                  //  Log.e(TAG, "The app moved the camera.")
                 }
             }
         }
@@ -261,9 +261,9 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
                         Manifest.permission.ACCESS_FINE_LOCATION
                     )
                 )
-                Log.e(TAG, "checkLocationPermissions: 1")
+              //  Log.e(TAG, "checkLocationPermissions: 1")
             } else {
-                Log.e(TAG, "checkLocationPermissions: 2")
+              //  Log.e(TAG, "checkLocationPermissions: 2")
                 goToMyLocation()
 
             }
@@ -307,7 +307,7 @@ class SelectLocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 if (myLatLng != null) return
 
-                Log.e(TAG, "Camera onLocationChanged: 1")
+              //  Log.e(TAG, "Camera onLocationChanged: 1")
 
                 myLatLng = LatLng(
                     location.latitude,

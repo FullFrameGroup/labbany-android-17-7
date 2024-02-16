@@ -81,12 +81,12 @@ class PaymentMethodsFragment : Fragment(), RecyclerViewOnClickListener {
                         it.handleErrors(mContext, null)
                     }
                     is NetworkState.Result<*> -> {
-                        Log.e(TAG, "${it.response}")
+//                      //  Log.e(TAG, "${it.response}")
 
                         visProgress(false)
                         val response = it.response as AllVisasResponse
 
-                        Log.e(TAG, "result: response $response")
+//                      //  Log.e(TAG, "result: response $response")
 
                         visProgress(progressState = false)
 
@@ -159,7 +159,7 @@ class PaymentMethodsFragment : Fragment(), RecyclerViewOnClickListener {
                     is NetworkState.Result<*> -> {
                         val response = it.response as GeneralResponse
 
-                        Log.e(TAG, "result: response $response")
+//                      //  Log.e(TAG, "result: response $response")
 
                         viewHolder.visProgress(progressState = false)
 

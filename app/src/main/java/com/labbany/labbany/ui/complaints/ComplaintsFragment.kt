@@ -66,7 +66,7 @@ class ComplaintsFragment : Fragment(), RecyclerViewOnClickListener {
         navController.addOnDestinationChangedListener { _, _, _ ->
             val arg = arguments?.keySet()?.toMutableList()
 
-            Log.e(TAG, "setUp: $arg")
+//          //  Log.e(TAG, "setUp: $arg")
 
             complaints()
         }

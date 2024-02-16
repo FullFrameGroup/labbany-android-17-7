@@ -258,7 +258,7 @@ object Utils {
 
 //        val s= simpleDateFullFormat.format(d)
 
-//        Log.e(TAG, "simpleDate: ${simpleDateFormat.format(d)}")
+//      //  Log.e(TAG, "simpleDate: ${simpleDateFormat.format(d)}")
         return d//simpleDateFormat.format(d)
 
     }

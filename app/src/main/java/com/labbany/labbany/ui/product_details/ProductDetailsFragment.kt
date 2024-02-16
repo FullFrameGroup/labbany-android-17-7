@@ -171,7 +171,7 @@ class ProductDetailsFragment : DialogFragment(), AdapterView.OnItemSelectedListe
 
             override fun afterTextChanged(s: Editable?) {
 
-                Log.e(TAG, "afterTextChanged: 1")
+              //  Log.e(TAG, "afterTextChanged: 1")
 //                if (!s.isNullOrEmpty()) {
 //                    val numbers = Utils.englishNumbers(s.toString())
 

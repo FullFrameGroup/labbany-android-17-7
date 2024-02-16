@@ -83,7 +83,7 @@ class OrderDetailsFragment : Fragment(), RecyclerViewOnClickListener {
                         when {
                             response.success -> {
 
-                                Log.e(TAG, "result: $response")
+//                              //  Log.e(TAG, "result: $response")
                                 fillUI(response.data!!)
 
                             }
@@ -103,9 +103,9 @@ class OrderDetailsFragment : Fragment(), RecyclerViewOnClickListener {
 
         val orderDetails = data.order[0]
         val taxPercentage = orderDetails.tax / 100
-        Log.e(TAG, "fillUI: tax org ${orderDetails.tax}")
-        Log.e(TAG, "fillUI: tax pre $taxPercentage")
-        Log.e(TAG, "fillUI: tax ${originPrice * taxPercentage}")
+//      //  Log.e(TAG, "fillUI: tax org ${orderDetails.tax}")
+//      //  Log.e(TAG, "fillUI: tax pre $taxPercentage")
+//      //  Log.e(TAG, "fillUI: tax ${originPrice * taxPercentage}")
 
         binding.tvOrderNumber.text = "${orderDetails.o_id}"
         binding.tvOrderState.text = orderDetails.order_status_str

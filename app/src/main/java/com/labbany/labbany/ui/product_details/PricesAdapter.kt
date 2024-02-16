@@ -19,7 +19,7 @@ class PricesAdapter : BaseAdapter() {
     override fun getCount(): Int = list.size
 
     override fun getItem(position: Int): PriceModel {
-        Log.e(TAG, "getItem: price ${list[position].price}")
+//      //  Log.e(TAG, "getItem: price ${list[position].price}")
         return list[position]
     }
     override fun getItemId(position: Int): Long = position.toLong()

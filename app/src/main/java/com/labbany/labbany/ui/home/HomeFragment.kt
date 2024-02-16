@@ -71,7 +71,7 @@ class HomeFragment : Fragment(), RecyclerViewOnClickListener {
 
                 data as CityModel
 
-                Log.e(TAG, "onDismiss: city_id ${data.city_id}")
+//              //  Log.e(TAG, "onDismiss: city_id ${data.city_id}")
                 products(data.city_id)
             }
 
@@ -153,11 +153,11 @@ class HomeFragment : Fragment(), RecyclerViewOnClickListener {
 
                 when (it) {
                     is NetworkState.Idle -> {
-                        Log.e(TAG, "products: 1")
+                      //  Log.e(TAG, "products: 1")
                         return@collect
                     }
                     is NetworkState.Loading -> {
-                        Log.e(TAG, "products: 2")
+                      //  Log.e(TAG, "products: 2")
                         visProgress(true)
                     }
                     is NetworkState.Error -> {
@@ -167,13 +167,13 @@ class HomeFragment : Fragment(), RecyclerViewOnClickListener {
                     is NetworkState.Result<*> -> {
                         val response = it.response as ProductsResponse
 
-                        Log.e(TAG, "products: 3")
+                      //  Log.e(TAG, "products: 3")
                         visProgress(false)
 
                         when {
                             response.success -> {
 
-                                Log.e(TAG, "result: --")
+                              //  Log.e(TAG, "result: --")
                                 homeHeaderAdapter.clear()
 
                                 if (!response.data.categories.isNullOrEmpty()) {
@@ -194,10 +194,10 @@ class HomeFragment : Fragment(), RecyclerViewOnClickListener {
                                         .show(parentFragmentManager, "")
                                 }
 
-                                Log.e(TAG, "result: banners ${response.data.banners}")
+//                              //  Log.e(TAG, "result: banners ${response.data.banners}")
                                 if (!response.data.banners.isNullOrEmpty()) {
 
-                                    Log.e(TAG, "result: banners ${response.data.banners.size}")
+//                                  //  Log.e(TAG, "result: banners ${response.data.banners.size}")
                                     binding.slider.visibility = View.VISIBLE
                                     offersAdapter.submitData(response.data.banners)
 
@@ -263,7 +263,7 @@ class HomeFragment : Fragment(), RecyclerViewOnClickListener {
             bundle.putString(Constants.IMAGE, data.productImage)
 
 //        if (auth()) {
-        Log.e(TAG, "onRootClickListener: data.productId ${data.productId}")
+//      //  Log.e(TAG, "onRootClickListener: data.productId ${data.productId}")
         navController.navigate(R.id.productDetailsFragment, bundle)
 //        } else
 //            navController.navigate(R.id.notAuthDialog)

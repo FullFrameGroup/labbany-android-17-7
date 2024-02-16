@@ -77,7 +77,7 @@ class TermsAndConditionsFragment : Fragment() {
                         when {
                             response.success -> {
 
-                                Log.e(TAG, "result: done $response")
+//                              //  Log.e(TAG, "result: done $response")
 
                                 binding.tvTerms.text= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                                     Html.fromHtml(response.data.content, Html.FROM_HTML_MODE_COMPACT)

@@ -194,7 +194,7 @@ class UploadProblemFragment : DialogFragment() {
         if (binding.spTypes.selectedItemPosition == -1)
             Utils.toast(requireContext(), getString(R.string.should_select_problem_type))
 
-        Log.e(TAG, "verify: isNull $isNull")
+      //  Log.e(TAG, "verify: isNull $isNull")
 
         return !isNull
     }

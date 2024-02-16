@@ -39,7 +39,7 @@ class HomeBodyAdapter(val listener: RecyclerViewOnClickListener) :
 
 //            binding.tvName.text = product.productName
 
-            Log.e(TAG, "bind: productId ${product.productId}")
+//          //  Log.e(TAG, "bind: productId ${product.productId}")
 
             if (!product.productImage.isNullOrEmpty())
                 Picasso.get().load(product.productImage).into(binding.img)

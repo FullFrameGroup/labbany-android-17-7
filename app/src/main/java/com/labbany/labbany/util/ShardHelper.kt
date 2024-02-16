@@ -73,9 +73,9 @@ class ShardHelper(mContext: Context) {
     }
 
     fun logOut() {
-        Log.e(TAG, "logOut: 1")
+      //  Log.e(TAG, "logOut: 1")
         editor.clear()!!.apply()
-        Log.e(TAG, "logOut: 2")
+      //  Log.e(TAG, "logOut: 2")
     }
 
     companion object {

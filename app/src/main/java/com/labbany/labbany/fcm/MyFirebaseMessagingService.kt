@@ -23,7 +23,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     lateinit var data: MutableMap<String, String>
 
     override fun handleIntent(intent: Intent) {
-        Log.e(TAG, "handleIntent: mmr")
+      //  Log.e(TAG, "handleIntent: mmr")
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -33,7 +33,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val title = remoteMessage.data["title"]//remoteMessage.notification!!.title
         val body = remoteMessage.data["body"]//remoteMessage.notification!!.body
 
-        Log.e(TAG, "onMessageReceived: mmr")
+      //  Log.e(TAG, "onMessageReceived: mmr")
 
         sendNotification(title, body)
 

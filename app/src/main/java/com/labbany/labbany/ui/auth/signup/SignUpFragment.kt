@@ -137,7 +137,7 @@ class SignUpFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done ${response.data}")
+                              //  Log.e(TAG, "result: done ${response.data}")
 
                                 val bundle = Bundle()
 
@@ -282,7 +282,7 @@ class SignUpFragment : Fragment() {
             )
         ) isNull = true
 
-        Log.e(TAG, "verify: isNull $isNull")
+      //  Log.e(TAG, "verify: isNull $isNull")
 
         return !isNull
     }

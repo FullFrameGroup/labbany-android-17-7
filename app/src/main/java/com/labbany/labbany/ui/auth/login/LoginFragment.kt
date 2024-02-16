@@ -124,28 +124,28 @@ class LoginFragment : Fragment() {
 
         binding.imgFacebook.setOnClickListener {
 
-            Log.e(TAG, "facebook code : 1")
+          //  Log.e(TAG, "facebook code : 1")
             LoginManager.getInstance()
                 .logInWithReadPermissions(this, listOf("email", "public_profile", "user_friends"))
 
-            Log.e(TAG, "facebook code : 2")
+          //  Log.e(TAG, "facebook code : 2")
 
             LoginManager.getInstance().registerCallback(callbackManager,
                 object : FacebookCallback<LoginResult?> {
                     override fun onSuccess(loginResult: LoginResult?) {
                         // App code
-                        Log.e(TAG, "facebook code onSuccess: 1")
+                      //  Log.e(TAG, "facebook code onSuccess: 1")
                         getFacebookUserProfile(loginResult!!.accessToken)
                     }
 
                     override fun onCancel() {
                         // App code
-                        Log.e(TAG, "facebook code onCancel: 1")
+                      //  Log.e(TAG, "facebook code onCancel: 1")
                     }
 
                     override fun onError(exception: FacebookException) {
                         // App code
-                        Log.e(TAG, "facebook code onError: ${exception.message} \n $exception")
+//                      //  Log.e(TAG, "facebook code onError: ${exception.message} \n $exception")
                     }
                 })
 
@@ -163,8 +163,8 @@ class LoginFragment : Fragment() {
                 //object.getString(“name”);
                 //object.getString(“email”));
 
-                Log.e(TAG, "getUserProfile: true")
-                Log.e(TAG, "getUserProfile: data $object1")
+              //  Log.e(TAG, "getUserProfile: true")
+//              //  Log.e(TAG, "getUserProfile: data $object1")
 
                 val response: FacebookTest =
                     Gson().fromJson(object1.toString(), FacebookTest::class.java)
@@ -185,7 +185,7 @@ class LoginFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
 //        super.onActivityResult(requestCode, resultCode, data)
-        Log.e(TAG, "onActivityResult: facebook code 1")
+      //  Log.e(TAG, "onActivityResult: facebook code 1")
     }
 
     private fun signInWithGoogle() {
@@ -201,17 +201,17 @@ class LoginFragment : Fragment() {
 
             // Signed in successfully, show authenticated UI.
 
-            Log.e(TAG, "handleSignInResult: true")
-            Log.e(TAG, "handleSignInResult: true a1 ${account.photoUrl}")
+          //  Log.e(TAG, "handleSignInResult: true")
+//          //  Log.e(TAG, "handleSignInResult: true a1 ${account.photoUrl}")
 
             socialAuth(account.displayName!!, account.email!!, account.photoUrl!!.toString())
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
 
-            Log.e(TAG, "handleSignInResult: false")
+          //  Log.e(TAG, "handleSignInResult: false")
 
-            Log.e(TAG, "signInResult:failed code=" + e.statusCode)
+//          //  Log.e(TAG, "signInResult:failed code=" + e.statusCode)
 //            socialAuth(null)
         }
     }
@@ -245,7 +245,7 @@ class LoginFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done ${response.data}")
+//                              //  Log.e(TAG, "result: done ${response.data}")
 
                                 shardHelper.saveData(response.data!!)
                                 navController.navigate(R.id.homeFragment)
@@ -315,7 +315,7 @@ class LoginFragment : Fragment() {
                         when {
                             response.success -> {
 
-                                Log.e(TAG, "result: done ${response.data}")
+//                              //  Log.e(TAG, "result: done ${response.data}")
 
                                 shardHelper.saveData(response.data!!)
                                 navController.navigate(R.id.homeFragment)

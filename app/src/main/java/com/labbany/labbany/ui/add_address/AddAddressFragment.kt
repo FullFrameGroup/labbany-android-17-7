@@ -363,7 +363,7 @@ class AddAddressFragment : Fragment() {
             isNull = true
         }
 
-        Log.e(TAG, "verify: isNull $isNull")
+      //  Log.e(TAG, "verify: isNull $isNull")
 
         return !isNull
     }

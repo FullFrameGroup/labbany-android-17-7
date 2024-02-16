@@ -102,7 +102,7 @@ class AddVisaFragment : DialogFragment() {
                     is NetworkState.Result<*> -> {
                         val response = it.response as GeneralResponse
 
-                        Log.e(TAG, "result: response $response")
+//                      //  Log.e(TAG, "result: response $response")
 
                         visProgress(progressState = false)
 

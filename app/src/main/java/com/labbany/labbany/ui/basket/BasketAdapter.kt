@@ -109,7 +109,7 @@ class BasketAdapter(val listener: RecyclerViewOnClickListener) :
         @SuppressLint("SetTextI18n")
         private fun setItemPrice(mContext: Context, data: CartOrderModel) {
 
-            Log.e(TAG, "setItemPrice: data.total_price before ${data.total_price}")
+          //  Log.e(TAG, "setItemPrice: data.total_price before ${data.total_price}")
             binding.tvProductPrice.text =
                 "${Utils.decimalFormat(data.total_price)} ${mContext.getString(R.string.sar_2)}"
 
@@ -118,13 +118,13 @@ class BasketAdapter(val listener: RecyclerViewOnClickListener) :
 
                 val percentage = mCoupon!!.percentage / 100
 
-                Log.e(TAG, "setItemPrice: mCoupon!!.percentage ${mCoupon!!.percentage}")
-               Log.e(TAG, "setItemPrice: percentage $percentage")
+              //  Log.e(TAG, "setItemPrice: mCoupon!!.percentage ${mCoupon!!.percentage}")
+             //  Log.e(TAG, "setItemPrice: percentage $percentage")
 
                 data.total_price_with_discount = data.total_price - data.total_price * percentage
 
-                Log.e(TAG, "setItemPrice: data.total_price_with_discount ${data.total_price_with_discount}")
-                Log.e(TAG, "setItemPrice: data.total_price ${data.total_price}")
+              //  Log.e(TAG, "setItemPrice: data.total_price_with_discount ${data.total_price_with_discount}")
+              //  Log.e(TAG, "setItemPrice: data.total_price ${data.total_price}")
 
                 binding.tvProductDiscount.visibility = View.VISIBLE
 

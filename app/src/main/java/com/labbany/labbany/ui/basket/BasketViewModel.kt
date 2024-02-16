@@ -50,7 +50,7 @@ class BasketViewModel(
                 _cartDetailStateFlow.value = NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
             }.onSuccess {
 
-                Log.e(TAG, "cartDetail: ${it.body()}")
+              //  Log.e(TAG, "cartDetail: ${it.body()}")
 
                 if (it.body() != null)
                     _cartDetailStateFlow.value = NetworkState.Result(it.body())
@@ -71,13 +71,13 @@ class BasketViewModel(
             kotlin.runCatching {
                 ordersServices.makeOrder(makeOrderRequest)
             }.onFailure {
-                Log.e(TAG, "makeOrder1: $it")
+              //  Log.e(TAG, "makeOrder1: $it")
                 _makeOrderStateFlow.value = NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
             }.onSuccess {
 
-                Log.e(TAG, "makeOrder2: $it")
-                Log.e(TAG, "makeOrder2: $makeOrderRequest")
-                Log.e(TAG, "makeOrder2: ${it.body()}")
+              //  Log.e(TAG, "makeOrder2: $it")
+//              //  Log.e(TAG, "makeOrder2: $makeOrderRequest")
+//              //  Log.e(TAG, "makeOrder2: ${it.body()}")
 
                 if (it.body() != null)
                     _makeOrderStateFlow.value = NetworkState.Result(it.body())
@@ -145,10 +145,10 @@ class BasketViewModel(
             }.onFailure {
                 _checkoutIdStateFlow.value =
                     NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
-                Log.e(TAG, "requestCheckoutId: ${it.message}")
+//              //  Log.e(TAG, "requestCheckoutId: ${it.message}")
             }.onSuccess {
 
-                Log.e(TAG, "requestCheckoutId: ${it.body()}")
+//              //  Log.e(TAG, "requestCheckoutId: ${it.body()}")
 
                 if (it.body() != null)
                     _checkoutIdStateFlow.value = NetworkState.Result(it.body())
@@ -178,7 +178,7 @@ class BasketViewModel(
                     NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
             }.onSuccess {
 
-                Log.e(BasketActivity.TAG, "hyper pay transaction: vm 2 ${it.body()}")
+//                Log.e(BasketActivity.TAG, "hyper pay transaction: vm 2 ${it.body()}")
 
                 if (it.body() != null)
                     _getawayResultStateFlow.value = NetworkState.Result(it.body())
@@ -226,7 +226,7 @@ class BasketViewModel(
                     NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
             }.onSuccess {
 
-                Log.e(TAG, "sendPaymentDetails: ${it.body()}")
+              //  Log.e(TAG, "sendPaymentDetails: ${it.body()}")
 
                 if (it.body() != null)
                     _sendPaymentDetailStateFlow.value = NetworkState.Result(it.body())

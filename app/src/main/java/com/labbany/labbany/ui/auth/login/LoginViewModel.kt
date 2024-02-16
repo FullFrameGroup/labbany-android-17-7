@@ -36,7 +36,7 @@ class LoginViewModel(private val authServices: AuthServices) : ViewModel() {
             kotlin.runCatching {
                 FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
-                        Log.e(TAG, "Fetching FCM registration token failed", task.exception)
+//                      //  Log.e(TAG, "Fetching FCM registration token failed", task.exception)
 
                         completeNormalLogin(
                             phoneOrEmail, password!!, "token"

@@ -134,7 +134,7 @@ class EditProfileFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done ${response.data}")
+//                              //  Log.e(TAG, "result: done ${response.data}")
 
                                 shardHelper.saveData(response.data!!)
 

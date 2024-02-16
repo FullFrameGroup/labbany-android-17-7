@@ -31,8 +31,8 @@ sealed class NetworkState {
             val mFragmentManager: FragmentManager =
                 (mContext as AppCompatActivity).supportFragmentManager
 
-            Log.e(TAG, "handleErrors: msg $msg")
-            Log.e(TAG, "handleErrors: error code $errorCode")
+          //  Log.e(TAG, "handleErrors: msg $msg")
+          //  Log.e(TAG, "handleErrors: error code $errorCode")
 
             when (errorCode) {
 

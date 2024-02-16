@@ -27,10 +27,10 @@ class MainToolbar(
     init {
         binding.icCity.text = shardHelper.cityName
 
-        Log.e(TAG, "init: 1")
+      //  Log.e(TAG, "init: 1")
 
         binding.icCity.setOnClickListener {
-            Log.e(TAG, "icCity.setOnClickListener: 1")
+          //  Log.e(TAG, "icCity.setOnClickListener: 1")
 
             val dialogsListener = object : DialogsListener {
                 override fun <T> onDismiss(data: T) {
@@ -47,7 +47,7 @@ class MainToolbar(
             )
         }
         binding.imgShoppingCart.setOnClickListener {
-            Log.e(TAG, "imgShoppingCart.setOnClickListener: 1")
+          //  Log.e(TAG, "imgShoppingCart.setOnClickListener: 1")
             basketLauncher.launch(Intent(mContext, BasketActivity::class.java))
         }
     }

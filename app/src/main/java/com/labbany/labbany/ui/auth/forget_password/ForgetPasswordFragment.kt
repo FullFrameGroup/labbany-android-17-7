@@ -87,7 +87,7 @@ class ForgetPasswordFragment : Fragment() {
 
                         when {
                             response.success -> {
-                                Log.e(TAG, "result: done $response")
+//                              //  Log.e(TAG, "result: done $response")
 
                                 val bundle=Bundle()
 

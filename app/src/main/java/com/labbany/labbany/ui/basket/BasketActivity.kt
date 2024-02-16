@@ -135,20 +135,20 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                 // Payment was successful
                 // showSuccessResult(result.data.toJson(pretty = true))
 
-                Log.e(TAG, "handleOrderResult: ${result.data}")
+              //  Log.e(TAG, "handleOrderResult: ${result.data}")
 //                Toast.makeText(mContext, "Payment Success", Toast.LENGTH_SHORT).show()
                 sendPaymentDetails(result.data)
 
             }
             is GeideaResult.Error -> {
                 // Some error occurred
-                Log.e(TAG, "handleOrderResult: $result")
+              //  Log.e(TAG, "handleOrderResult: $result")
                 //result.toJson(pretty = true)
                 showErrorResult("خطأ في بطاقة الدفع المدخلة \nرجاء تأكد منها أولا")
             }
             is GeideaResult.Cancelled -> {
                 // The payment flow was intentionally cancelled by the user
-                Log.e(TAG, "handleOrderResult: Cancelled")
+              //  Log.e(TAG, "handleOrderResult: Cancelled")
                 showErrorResult(" تم إلغاء عملية الدفع")
             }
         }
@@ -197,9 +197,9 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
         listenVisaSelected()
 
-        Log.e(TAG, "onViewCreated: ${shardHelper.id}")
+//      //  Log.e(TAG, "onViewCreated: ${shardHelper.id}")
 
-        listenAmount()
+        listenAmount()  
 
         binding.tvDate.setOnClickListener { showDateListener() }
         binding.tvTime.setOnClickListener { showTimeListener() }
@@ -366,11 +366,11 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Result<*> -> {
                         val data = it.response as JsonObject
 
-                        Log.e(TAG, "hyper pay transaction: 8.1 $data")
+//                      //  Log.e(TAG, "hyper pay transaction: 8.1 $data")
 
                         val response = Gson().fromJson(data, GetawayResultResponse::class.java)
 
-                        Log.e(TAG, "hyper pay transaction: 8 $response")
+//                      //  Log.e(TAG, "hyper pay transaction: 8 $response")
 
                         when {
                             data.get("success").asBoolean -> {
@@ -451,14 +451,14 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
             if (!response.data.cart_items.isNullOrEmpty()) {
                 basketAdapter.submitData(response.data.cart_items as ArrayList<CartOrderModel>)
 
-                Log.e(TAG, "result: cart items ${response.data.cart_items}")
+//              //  Log.e(TAG, "result: cart items ${response.data.cart_items}")
                 response.data.cart_items.forEach { i ->
                     originPrice += i.total_price
                 }
 
                 setItemPrice()
 
-                Log.e(TAG, "result: total $fullTotalBeforeDiscount")
+//              //  Log.e(TAG, "result: total $fullTotalBeforeDiscount")
             } else {
                 emptyBasketDialog()
             }
@@ -615,7 +615,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
         lifecycleScope.launchWhenStarted {
             sharedViewModel.visaStateFlow.collect {
 
-                Log.e(TAG, "listenVisaSelected: visaStateFlow $it")
+//              //  Log.e(TAG, "listenVisaSelected: visaStateFlow $it")
 
                 when (it) {
                     is NetworkState.Error -> {
@@ -630,7 +630,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
                     is NetworkState.Result<*> -> {
                         selectedVisa = it.response as VisaModel
 
-                        Log.e(TAG, "listenVisaSelected: visa $it")
+//                      //  Log.e(TAG, "listenVisaSelected: visa $it")
 
                         checkOrderSentBefore()
                     }
@@ -728,7 +728,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
             timeClickStateFlow.value = false
             val date = Utils.simpleDateFormat(mCalendar!!).plus(" ").plus(Utils.fullTimeFormat())
 
-            Log.e(TAG, "showTimeListener: $date")
+//          //  Log.e(TAG, "showTimeListener: $date")
 
             val mDialogsListener = object : DialogsListener {
                 @SuppressLint("SetTextI18n")
@@ -792,17 +792,17 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
     private fun callMakeOrderApi() {
 
-        try {
-            Log.e(TAG, "callMakeOrderApi: 1 ${Utils.getDateOnly(mCalendar!!)}")
+        /*try {
+          //  Log.e(TAG, "callMakeOrderApi: 1 ${Utils.getDateOnly(mCalendar!!)}")
 
         } catch (e: Exception) {
         }
 
         try {
-            Log.e(TAG, "callMakeOrderApi: 2 ${mTime!!.from_time} | ${mTime!!.to_time}")
+          //  Log.e(TAG, "callMakeOrderApi: 2 ${mTime!!.from_time} | ${mTime!!.to_time}")
 
         } catch (e: Exception) {
-        }
+        }*/
 
         val makeOrderRequest = MakeOrderRequest(
             additional_discount = null,
@@ -932,7 +932,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
     override fun onCardBrandSelected(cardBrand: VisaTypeModel): Boolean {
 
-        Log.e(TAG, "onCardBrandSelected: 1")
+      //  Log.e(TAG, "onCardBrandSelected: 1")
 
         /*        val isValidate = paymentValidate()
 
@@ -957,7 +957,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
 
     /* override fun onVisaSelected(visa: VisaModel) {
 
-         Log.e(TAG, "onVisaSelected: 2 @@ $visa")
+       //  Log.e(TAG, "onVisaSelected: 2 @@ $visa")
 
          startPayment()
 
@@ -1161,7 +1161,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
  //            (selectedVisa!!.cart_date.split("-")[0].toDouble() % 2000).roundToInt().toString()
          val month = "12"//selectedVisa!!.cart_date.split("-")[1]
 
-         Log.e(TAG, "startPayment: fullTotalAfterDisCount $fullTotalAfterDisCount")
+       //  Log.e(TAG, "startPayment: fullTotalAfterDisCount $fullTotalAfterDisCount")
 
          val paymentParams: PaymentParams = CardPaymentParams(
              checkoutId,
@@ -1217,45 +1217,45 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
     }
 
     override fun transactionCompleted(p0: Transaction) {
-        Log.e(TAG, "hyper pay transaction: 1 ${p0.brandSpecificInfo}")
+      //  Log.e(TAG, "hyper pay transaction: 1 ${p0.brandSpecificInfo}")
 
         getResourcePath(p0.paymentParams.checkoutId)
     }
 
     override fun transactionFailed(p0: Transaction, p1: PaymentError) {
-        Log.e(TAG, "hyper pay transaction: tf ${p1.errorInfo}")
-        Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.ordinal}")
-        Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.name}")
-        Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.errorCode}")
-        Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.describeContents()}")
-        Log.e(TAG, "hyper pay transaction: tf ${p1.errorMessage}")
+//      //  Log.e(TAG, "hyper pay transaction: tf ${p1.errorInfo}")
+//      //  Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.ordinal}")
+//      //  Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.name}")
+//      //  Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.errorCode}")
+//      //  Log.e(TAG, "hyper pay transaction: tf ${p1.errorCode.describeContents()}")
+//      //  Log.e(TAG, "hyper pay transaction: tf ${p1.errorMessage}")
         showErrorResult(p1.errorMessage)
     }
 
     override fun paymentConfigRequestSucceeded(checkoutInfo: CheckoutInfo) {
         /* get the resource path in this ITransactionListener callback */
-        Log.e(TAG, "hyper pay transaction: 4")
+      //  Log.e(TAG, "hyper pay transaction: 4")
         val resourcePath = checkoutInfo.resourcePath
         paymentStatus(resourcePath!!)
-        Log.e(TAG, "hyper pay transaction: 5")
+      //  Log.e(TAG, "hyper pay transaction: 5")
 
     }
 
     private fun getResourcePath(checkoutId: String) {
 
         try {
-            Log.e(TAG, "hyper pay transaction: 2")
+          //  Log.e(TAG, "hyper pay transaction: 2")
             paymentProvider.requestCheckoutInfo(checkoutId, this)
         } catch (e: PaymentException) {
             /* error occurred */
-            Log.e(TAG, "hyper pay transaction: 3")
+          //  Log.e(TAG, "hyper pay transaction: 3")
         }
 
     }
 
     private fun paymentStatus(resourcePath: String) {
 
-        Log.e(TAG, "hyper pay transaction: 6")
+      //  Log.e(TAG, "hyper pay transaction: 6")
         viewModel.paymentStatus(resourcePath, visaTypeAdapter.getPaymentType())
     }
 
@@ -1285,10 +1285,10 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
     override fun onResume() {
         super.onResume()
 
-        Log.e(TAG, "onResume: 12")
+      //  Log.e(TAG, "onResume: 12")
 
         if (transactionState == TransactionState.PENDING) {
-            Log.e(TAG, "onResume: 13")
+          //  Log.e(TAG, "onResume: 13")
         } else if (transactionState == TransactionState.COMPLETED) {
             paymentStatus("/v1/checkouts/${checkoutId}/payment")
         }
@@ -1298,7 +1298,7 @@ class BasketActivity : AppCompatActivity(), RecyclerViewOnClickListener/*, OnVis
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
 
-        Log.e(TAG, "hyper pay transaction: onNewIntent")
+      //  Log.e(TAG, "hyper pay transaction: onNewIntent")
 
         if (intent.scheme == "com.labbany") {
             /* request payment status */

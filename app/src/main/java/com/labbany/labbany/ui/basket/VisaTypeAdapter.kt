@@ -56,7 +56,7 @@ class VisaTypeAdapter(val onCardBrandSelected: OnCardBrandSelected) :
                 binding.imgVisa.visibility = View.VISIBLE
                 binding.tvVisa.visibility = View.GONE
 
-                Log.e(TAG, "bind: data.visa_img ${data.visa_type_img}")
+//              //  Log.e(TAG, "bind: data.visa_img ${data.visa_type_img}")
                 if (!data.visa_type_img.isNullOrEmpty())
                     Picasso.get().load(data.visa_type_img).into(binding.imgVisa)
             }

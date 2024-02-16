@@ -35,7 +35,7 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
             kotlin.runCatching {
                 FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
-                        Log.e(TAG, "Fetching FCM registration token failed", task.exception)
+                      //  Log.e(TAG, "Fetching FCM registration token failed", task.exception)
                         _signUpStateFlow.value = NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
                         return@OnCompleteListener
                     }
@@ -64,7 +64,7 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
         bitmap: Bitmap?,
         fcm_token: String?
     ) {
-        Log.e(TAG, "completeSignUP: image ${image != null}")
+      //  Log.e(TAG, "completeSignUP: image ${image != null}")
 
         CoroutineScope(Dispatchers.IO).launch {
             kotlin.runCatching {
