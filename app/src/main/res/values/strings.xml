@@ -75,6 +75,7 @@
     <string name="not_email">يجب أن يكون ايميلا</string>
     <string name="password_not_matcher">كلمتا المرور يجب أن تكون متطابقة</string>
     <string name="image_per">يجب عليك السماح للوصول الي الوسائط أولا</string>
+    <string name="notifications_per">يجب عليك السماح لعرض الإشعارات أولا</string>
     <string name="phone_validate">يجب ان سكون 10 ارقام ويبدأ ب 0</string>
     <string name="otp_error">الرمز المدخل غير صحيح</string>
     <string name="reset_password">إعادة تعيين كلمة السر</string>

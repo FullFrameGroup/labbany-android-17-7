@@ -1,104 +1,26 @@
 {
   "project_info": {
-    "project_number": "756281753615",
-    "firebase_url": "https://nokhba-mobile-app.firebaseio.com",
-    "project_id": "nokhba-mobile-app",
-    "storage_bucket": "nokhba-mobile-app.appspot.com"
+    "project_number": "833725280846",
+    "project_id": "labbany-new",
+    "storage_bucket": "labbany-new.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:756281753615:android:660f92a056b24eeb",
-        "android_client_info": {
-          "package_name": "com.aait.nokhba2"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "756281753615-112b58p1adpgj2kuadlkhpcr9dcpjgoo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aait.nokhba2",
-            "certificate_hash": "3aefdb454420ec0e39b9d4c94ff68ce8387a11f4"
-          }
-        },
-        {
-          "client_id": "756281753615-rkfmov5qtvsn40tfqtmrn0kms6n37mjm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.aait.nokhba2",
-            "certificate_hash": "3655704311cb4f4475cf84196d284e516868cd21"
-          }
-        },
-        {
-          "client_id": "756281753615-nveb31cuv5oi02fv62hbj7jmg9h9cto4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAnS20i7oxUKGZRJ7rv2BN7_H2vRYk-ATQ"
-        },
-        {
-          "current_key": "AIzaSyDIQs3z3C8_LJWychbI9Lz9sSIYs3INdvk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "756281753615-nveb31cuv5oi02fv62hbj7jmg9h9cto4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "756281753615-0139herc8bg23jj8o3omfsemrogm8ind.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.aait.nokhba",
-                "app_store_id": "1310749344"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:756281753615:android:dad206358a0263fd42637a",
+        "mobilesdk_app_id": "1:833725280846:android:c1bb22b441fd2e3c43891f",
         "android_client_info": {
           "package_name": "com.labbany.labbany"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "756281753615-nveb31cuv5oi02fv62hbj7jmg9h9cto4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAnS20i7oxUKGZRJ7rv2BN7_H2vRYk-ATQ"
-        },
-        {
-          "current_key": "AIzaSyDIQs3z3C8_LJWychbI9Lz9sSIYs3INdvk"
+          "current_key": "AIzaSyCTfw2uvMQOAPtw_BYdEznNQGDdp6Utv6M"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "756281753615-nveb31cuv5oi02fv62hbj7jmg9h9cto4.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "756281753615-0139herc8bg23jj8o3omfsemrogm8ind.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.aait.nokhba",
-                "app_store_id": "1310749344"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

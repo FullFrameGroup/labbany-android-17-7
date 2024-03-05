@@ -181,10 +181,10 @@ class HomeFragment : Fragment(), RecyclerViewOnClickListener {
                                     response.data.categories.forEach { category ->
 
                                         if (!category.products.isNullOrEmpty()) {
-                                            Log.e(
+                                            /*Log.e(
                                                 TAG,
                                                 "result: category ${category.id} , ${category.categoryName}"
-                                            )
+                                            )*/
                                             homeHeaderAdapter.submitData(category)
                                         }
                                     }

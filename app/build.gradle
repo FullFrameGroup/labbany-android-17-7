@@ -14,8 +14,8 @@ android {
         applicationId "com.labbany.labbany"
         minSdk 24
         targetSdk 33
-        versionCode 9
-        versionName "2.2.2"
+        versionCode 10
+        versionName "2.2.3"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         useLibrary 'org.apache.http.legacy'
@@ -101,6 +101,7 @@ dependencies {
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
 
     // We will use it for loading the images
     implementation 'com.squareup.picasso:picasso:2.71828'

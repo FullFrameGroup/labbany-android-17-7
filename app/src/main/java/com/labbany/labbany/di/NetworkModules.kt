@@ -1,7 +1,9 @@
 package com.labbany.labbany.di
 
+import com.labbany.labbany.BuildConfig
 import com.labbany.labbany.data.*
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,11 +16,19 @@ object NetworkModules {
     val modules = module {
 
         single {
-            OkHttpClient().newBuilder()
+
+            val logging = HttpLoggingInterceptor()
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+            val okHttpClient=OkHttpClient().newBuilder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
-                .build()
+
+            if (BuildConfig.DEBUG)
+                okHttpClient.addInterceptor(logging)
+
+            okHttpClient.build()
         }
 
         single {

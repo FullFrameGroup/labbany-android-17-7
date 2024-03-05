@@ -5,12 +5,11 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.google.firebase.messaging.FirebaseMessaging
 import com.labbany.labbany.data.AuthServices
 import com.labbany.labbany.data.NetworkState
 import com.labbany.labbany.util.Constants
 import com.labbany.labbany.util.Utils
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,15 +32,12 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
 
         CoroutineScope(Dispatchers.IO).launch {
             kotlin.runCatching {
-                FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-                    if (!task.isSuccessful) {
-                      //  Log.e(TAG, "Fetching FCM registration token failed", task.exception)
-                        _signUpStateFlow.value = NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
-                        return@OnCompleteListener
-                    }
-
+                FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
                     // Get new FCM registration token
-                    val token = task.result
+                    val token = if (!task.isSuccessful)
+                        "token"
+                    else
+                        task.result
 
                     CoroutineScope(Dispatchers.IO).launch {
                         completeSignUP(
@@ -49,7 +45,7 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
                         )
                     }
 
-                })
+                }
 
             }
         }
@@ -64,7 +60,7 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
         bitmap: Bitmap?,
         fcm_token: String?
     ) {
-      //  Log.e(TAG, "completeSignUP: image ${image != null}")
+        //  Log.e(TAG, "completeSignUP: image ${image != null}")
 
         CoroutineScope(Dispatchers.IO).launch {
             kotlin.runCatching {
@@ -80,6 +76,7 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
                             image,
                             "image"
                         )
+
                         bitmap != null -> Utils.imageBody(bitmap, "image")
                         else -> null
                     },
@@ -87,9 +84,11 @@ class SignUpViewModel(private val authServices: AuthServices) : ViewModel() {
                     Utils.requestBody(Constants.APP_VERSION)
                 )
             }.onFailure {
+                Log.e(TAG, "completeSignUP1: ${it.message}")
                 _signUpStateFlow.value = NetworkState.Error(Constants.Codes.EXCEPTIONS_CODE)
             }.onSuccess {
-
+                Log.e(TAG, "completeSignUP2: ${it.message()}")
+                Log.e(TAG, "completeSignUP3: ${it.code()}")
                 if (it.body() != null)
                     _signUpStateFlow.value = NetworkState.Result(it.body())
                 else

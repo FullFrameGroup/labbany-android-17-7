@@ -22,6 +22,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.labbany.labbany.R
 import com.labbany.labbany.data.NetworkState
 import com.labbany.labbany.databinding.FragmentSignUpBinding
@@ -31,6 +33,9 @@ import com.labbany.labbany.util.Constants
 import com.labbany.labbany.util.Utils
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Target
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 class SignUpFragment : Fragment() {
@@ -89,6 +94,13 @@ class SignUpFragment : Fragment() {
         binding.tb.imgBack.setOnClickListener { navController.popBackStack() }
 
         checkSocialAuth()
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+
+            Log.e(TAG, "onViewCreated: ${task.result}")
+
+        }
+
 
         binding.tvSignUp.setOnClickListener {
 

@@ -1,7 +1,10 @@
 package com.labbany.labbany.ui
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View.GONE
@@ -9,6 +12,7 @@ import android.view.View.VISIBLE
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -17,6 +21,7 @@ import com.google.android.material.navigation.NavigationBarView
 import com.labbany.labbany.R
 import com.labbany.labbany.databinding.ActivityMainBinding
 import com.labbany.labbany.util.Constants
+import com.labbany.labbany.util.Utils
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener,
     NavigationBarView.OnItemSelectedListener {
@@ -40,6 +45,13 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             }
         }
 
+    private val requestMultiplePermissions =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            if (permissions[Manifest.permission.POST_NOTIFICATIONS] == false) {
+                Utils.toast(this,getString(R.string.image_per))
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,6 +64,24 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController.addOnDestinationChangedListener(this)
         binding.bottomNavigation.setOnItemSelectedListener(this)
 //        binding.bottomNavigation.selectedItemId = R.id.home_page
+        checkPostNotificationsPermissions()
+
+    }
+
+    private fun checkPostNotificationsPermissions() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this, Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestMultiplePermissions.launch(
+                    arrayOf(
+                        Manifest.permission.POST_NOTIFICATIONS
+                    )
+                )
+            }
+        }
 
     }
 

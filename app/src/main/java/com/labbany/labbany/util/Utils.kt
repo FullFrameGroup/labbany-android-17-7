@@ -43,6 +43,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import com.google.android.material.datepicker.MaterialDatePicker
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import java.math.BigDecimal
 
 
@@ -424,7 +425,7 @@ object Utils {
 
 
     fun requestBody(txt: String): RequestBody =
-        RequestBody.create(MediaType.parse("multipart/form-data"), txt)
+        RequestBody.create("multipart/form-data".toMediaTypeOrNull(), txt)
 
     @SuppressLint("Recycle")
     fun imageBody(mContext: Context, uri: Uri, key: String? = null): MultipartBody.Part {
@@ -440,7 +441,7 @@ object Utils {
         }
 
         val file = File(p)
-        val requestFile = RequestBody.create(MediaType.parse("image/*"), file)
+        val requestFile = RequestBody.create("image/*".toMediaTypeOrNull(), file)
         return MultipartBody.Part.createFormData(
             if (key.isNullOrEmpty()) "photo" else key,
             file.name,
@@ -452,7 +453,7 @@ object Utils {
     fun imageBody(bitmap: Bitmap, key: String? = null): MultipartBody.Part {
 
         val requestFile =
-            RequestBody.create(MediaType.parse("image/*"), byteArrayFromBitmap(bitmap))
+            RequestBody.create("image/*".toMediaTypeOrNull(), byteArrayFromBitmap(bitmap))
         return MultipartBody.Part.createFormData(
             if (key.isNullOrEmpty()) "photo" else key,
             generateRandomString(10),
@@ -475,28 +476,28 @@ object Utils {
     }
 
 
-    fun fileRequestBodyFromByteArray(
-        data: ByteArray,
-        apiKey: String,
-        mediaTye: Int
-    ): MultipartBody.Part {
-
-
-        val requestFile = RequestBody.create(
-            MediaType.parse(
-                when (mediaTye) {
-                    11/* Constants.MediaTypes.PHOTO */ -> "image/*"
-                    1/* Constants.MediaTypes.VIDEO */ -> "video/*"
-                    else -> "image/*"
-                }
-            ), data
-        )
-        return MultipartBody.Part.createFormData(
-            apiKey,
-            currentTime.toString(),
-            requestFile
-        )
-    }
+//   fun fileRequestBodyFromByteArray(
+//        data: ByteArray,
+//        apiKey: String,
+//        mediaTye: Int
+//    ): MultipartBody.Part {
+//
+//
+//        val requestFile = RequestBody.create(
+//            MediaType.parse(
+//                when (mediaTye) {
+//                    11*//* Constants.MediaTypes.PHOTO *//* -> "image/*"
+//                    1*//* Constants.MediaTypes.VIDEO *//* -> "video/*"
+//                    else -> "image/*"
+//                }
+//            ), data
+//        )
+//        return MultipartBody.Part.createFormData(
+//            apiKey,
+//            currentTime.toString(),
+//            requestFile
+//        )
+//    }
 
 
     fun convertVideoToBytes(uri: Uri): ByteArray {
@@ -531,7 +532,7 @@ object Utils {
         }
 
         val file = File(p)
-        val requestFile = RequestBody.create(MediaType.parse("video/*"), file)
+        val requestFile = RequestBody.create("video/*".toMediaTypeOrNull(), file)
         return MultipartBody.Part.createFormData(
             if (key.isNullOrEmpty()) "video" else key,
             file.name,
