@@ -48,7 +48,7 @@
     <string name="delivery_location">موقع التسليم</string>
     <string name="neighborhood_name">اسم الحي</string>
     <string name="recivered_name">اسم المستلم</string>
-    <string name="receiver_phone">رقم المستلم</string>
+    <string name="receiver_phone">رقم رقم الجوال (إجباري)  <font fgcolor="#F44336">*</font></string>
     <string name="save_address">احفظ العنوان</string>
     <string name="push">دفع</string>
     <string name="visa_owner_name">اسم صاحب البطاقة</string>
@@ -57,7 +57,7 @@
     <string name="continuation">استمرار</string>
     <string name="account_verification">التحقق من الحساب</string>
     <string name="registered_payment_methods">طرق الدفع المسجلة</string>
-    <string name="enter_phone">أدخل رقم الهاتف</string>
+    <string name="enter_phone">ادخل رقم الجوال</string>
     <string name="minced_meat">لحم مفروم</string>
     <string name="note_here">اكتب ملاحظاتك هنا</string>
     <string name="notes">ملاحظاتك</string>

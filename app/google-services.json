@@ -12,7 +12,32 @@
           "package_name": "com.labbany.labbany"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "833725280846-1346tdm6nm76ct9vf6jik8ri2lon85ca.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.labbany.labbany",
+            "certificate_hash": "f8b93ff7d11222f94434ba657b6c4eb9309009f9"
+          }
+        },
+        {
+          "client_id": "833725280846-21p05n6trict19edscnn80qi510702qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.labbany.labbany",
+            "certificate_hash": "28eac7998fbb12aaf92a88d2b6dda3e1b38a3026"
+          }
+        },
+        {
+          "client_id": "833725280846-ikls3oufk4vq9btrlbtk4d7c2damjq3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.labbany.labbany",
+            "certificate_hash": "973b4e737cab821a6a5d509b8b666d4dfd036389"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCTfw2uvMQOAPtw_BYdEznNQGDdp6Utv6M"

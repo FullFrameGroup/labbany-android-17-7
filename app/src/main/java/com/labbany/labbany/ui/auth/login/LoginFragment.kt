@@ -36,7 +36,6 @@ import com.google.gson.Gson
 import com.labbany.labbany.R
 import org.json.JSONException
 import org.koin.android.ext.android.inject
-import java.util.*
 
 
 class LoginFragment : Fragment() {
@@ -204,7 +203,7 @@ class LoginFragment : Fragment() {
           //  Log.e(TAG, "handleSignInResult: true")
 //          //  Log.e(TAG, "handleSignInResult: true a1 ${account.photoUrl}")
 
-            socialAuth(account.displayName!!, account.email!!, account.photoUrl!!.toString())
+            socialAuth(account.displayName!!, account.email!!, account.photoUrl?.toString())
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -216,7 +215,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun socialAuth(name: String, email: String, photoUrl: String) {
+    private fun socialAuth(name: String, email: String, photoUrl: String?) {
 
         viewModel.login(
             email,
