@@ -14,8 +14,8 @@ android {
         applicationId "com.labbany.labbany"
         minSdk 24
         targetSdk 33
-        versionCode 10
-        versionName "2.2.3"
+        versionCode 12
+        versionName "2.2.5"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         useLibrary 'org.apache.http.legacy'
